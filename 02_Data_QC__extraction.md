@@ -44,7 +44,7 @@ h5ls and h5dump can be quite useful.
 h5ls reveals the structure of fast5 files.  Adding the -r flag makes this recursive:
 
 ```sh
-h5ls MAP006-1/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch480_file17_strand.fast5
+h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```
 ```
 Analyses                 Group
@@ -52,11 +52,11 @@ Sequences                Group
 UniqueGlobalKey          Group
 ```
 
- Adding the -r flag makes this recursive
- ```sh
- h5ls -r MAP006-1/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch480_file17_strand.fast5
- ```
- ```
+Adding the -r flag makes this recursive
+```sh
+h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+```
+```
 /                        Group
 /Analyses                Group
 /Analyses/EventDetection_000 Group
@@ -65,8 +65,8 @@ UniqueGlobalKey          Group
 /Analyses/EventDetection_000/Configuration/event_detection Group
 /Analyses/EventDetection_000/Configuration/hairpin_detection Group
 /Analyses/EventDetection_000/Reads Group
-/Analyses/EventDetection_000/Reads/Read_16 Group
-/Analyses/EventDetection_000/Reads/Read_16/Events Dataset {1614/Inf}
+/Analyses/EventDetection_000/Reads/Read_151 Group
+/Analyses/EventDetection_000/Reads/Read_151/Events Dataset {13837/Inf}
 /Sequences               Group
 /Sequences/Meta          Group
 /UniqueGlobalKey         Group
@@ -78,21 +78,21 @@ UniqueGlobalKey          Group
 We can compare this to a base-called file
 
 ```
-h5ls -r MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch150_file24_strand.fast5
+h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5
 ```
 ```
 /                        Group
 /Analyses                Group
 /Analyses/Basecall_2D_000 Group
 /Analyses/Basecall_2D_000/BaseCalled_2D Group
-/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {8394}
+/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {9464}
 /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_complement Group
-/Analyses/Basecall_2D_000/BaseCalled_complement/Events Dataset {6562}
+/Analyses/Basecall_2D_000/BaseCalled_complement/Events Dataset {12020}
 /Analyses/Basecall_2D_000/BaseCalled_complement/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_complement/Model Dataset {4096}
 /Analyses/Basecall_2D_000/BaseCalled_template Group
-/Analyses/Basecall_2D_000/BaseCalled_template/Events Dataset {7052}
+/Analyses/Basecall_2D_000/BaseCalled_template/Events Dataset {7550}
 /Analyses/Basecall_2D_000/BaseCalled_template/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_template/Model Dataset {4096}
 /Analyses/Basecall_2D_000/Configuration Group
@@ -108,8 +108,8 @@ h5ls -r MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_
 /Analyses/Basecall_2D_000/Configuration/recipes Group
 /Analyses/Basecall_2D_000/Configuration/split_hairpin Group
 /Analyses/Basecall_2D_000/HairpinAlign Group
-/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {6072}
-/Analyses/Basecall_2D_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_23/Events}
+/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {6600}
+/Analyses/Basecall_2D_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_121/Events}
 /Analyses/Basecall_2D_000/Log Dataset {SCALAR}
 /Analyses/Basecall_2D_000/Summary Group
 /Analyses/Basecall_2D_000/Summary/basecall_1d_complement Group
@@ -132,7 +132,7 @@ h5ls -r MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_
 /Analyses/Calibration_Strand_000/Configuration/post_processing.5000Hz Group
 /Analyses/Calibration_Strand_000/Configuration/recipes Group
 /Analyses/Calibration_Strand_000/Configuration/split_hairpin Group
-/Analyses/Calibration_Strand_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_23/Events}
+/Analyses/Calibration_Strand_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_121/Events}
 /Analyses/Calibration_Strand_000/Log Dataset {SCALAR}
 /Analyses/Calibration_Strand_000/Summary Group
 /Analyses/Calibration_Strand_000/Summary/calibration_strand_2d Group
@@ -144,8 +144,8 @@ h5ls -r MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_
 /Analyses/EventDetection_000/Configuration/event_detection Group
 /Analyses/EventDetection_000/Configuration/hairpin_detection Group
 /Analyses/EventDetection_000/Reads Group
-/Analyses/EventDetection_000/Reads/Read_23 Group
-/Analyses/EventDetection_000/Reads/Read_23/Events Dataset {13677}
+/Analyses/EventDetection_000/Reads/Read_121 Group
+/Analyses/EventDetection_000/Reads/Read_121/Events Dataset {19673}
 /Sequences               Group
 /Sequences/Meta          Group
 /UniqueGlobalKey         Group
@@ -154,24 +154,26 @@ h5ls -r MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_
 /UniqueGlobalKey/tracking_id Group
 ```
 
-We can also use h5ls -d to extract specific datasets from the files:
+We can also use h5ls -d to extract specific datasets from the files (note the /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq appended to the filename):
 ```sh
- h5ls -d MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch150_file24_strand.fast5/Analyses/Basecall_2D_000/BaseCalled_2D/Fastq
+ h5ls -d Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5/Analyses/Basecall_2D_000/BaseCalled_2D/Fastq
  ```
  ```
- Fastq                    Dataset {SCALAR}
+Fastq                    Dataset {SCALAR}
     Data:
-        (0) "@72e97803-06e3-44db-8000-287bb520a673_Basecall_2D_000_2d LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch150_file24_strand\nGTCTCTGTCTGTATCTGATATTGCTGTAACT
+        (0) "@49f8b333-6e60-4196-8539-00ef6e1c705d_Basecall_2D_000_2d LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand\nAAACTTGCCTGCTTACTGGAGCTCGCGATG
    ...
    <snip>
    ...
    &&'''(&&%&%'''&&'&&''&'&&(&(%('&%&%&'&&%%%\n"
 ```
+(but beware the odd "+'((" ''' repeats 8 times "(('((*'" in the quality socres!
+
 
 Unsurprisingly h5dump dumps the entire file to STDOUT
 
 ```sh
-h5dump MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch150_file24_strand.fast5
+h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5
 ```
 
 ## Browsing HDF5 files
@@ -179,7 +181,11 @@ h5dump MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_M
 Any HDF5 file can be opened using hdfview and browsed/edited in a GUI
 
 ```sh
-hdfview MAP006-1/MAP006-1_downloads/pass/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch150_file24_strand.fast5 &
+# non base-called
+hdfview Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
+
+# base called
+hdfview Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5 &
 ```
 
 ## Basic manipulation in poRe
@@ -200,7 +206,7 @@ library(poRe)
 We'll see how to extract FASTQ from entire directories below, but here are some exemples of single file analysis
 
 ```R
-f5 <- "MAP006-1/MAP006-1_downloads/pass//LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch300_file44_strand.fast5"
+f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5"
 get_fastq(f5)
 ```
 
@@ -222,6 +228,7 @@ Working with lists is easy in R, and if you want the FASTQ as a string:
 
 ```R
 fq <- get_fastq(f5, path.t="/Analyses/Basecall_2D_000/", which="all")
+names(fq)
 fq$template
 ```
 
@@ -229,7 +236,7 @@ From here you can see that it's incredibly simple to write a FASTQ extraction sc
 
 ```R
 # path to fast5 files
-f5dir <- "test"
+f5dir <- "Data/read_data/small_test"
 # get vector of all fast5 files
 f5files <- dir(f5dir, pattern="\\.fast5$", full.names = TRUE)
 # iterate over files
@@ -239,6 +246,7 @@ for (f5 in f5files) {
     # check fq is a list and contains 2D
     if (typeof(fq) == "list" && exists("2D", where=fq)) {
         # cat to "" (STDOUT but could be the name of a file
+	# change the cat = "" to a filename to see what happens
         cat(fq[["2D"]], file = "", sep = "\n", fill = FALSE)
     }
 }

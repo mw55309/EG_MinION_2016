@@ -411,14 +411,14 @@ head(yield.f)
 
 ### Read length histogram
 
-We can see a histogram of read lengths
+We can plot read lengths histograms
 
 ```R
 plot.length.histogram(pass)
 plot.length.histogram(fail)
 ```
 
-There's quite a long faled template read!
+There's quite a long failed template read!
 
 ```R
 max(fail$tlen)
@@ -442,7 +442,7 @@ The MinION flowcell is arranged into 512 channels in 4 blocks, and we can see th
 show.layout()
 ```
 
-We first need to calculate some statistics summarised by channel:
+We first calculate some statistics summarised by channel:
 
 ```R
 # pass data
@@ -512,7 +512,7 @@ seqtk seq -A MAP006-1.2D.fastq > MAP006-1.2D.fasta
 
 ## poretools
 
-Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  However, below poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, which is why we chose to pre-extract the necessary meta-data.
+Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, which is why we chose to pre-extract the necessary meta-data.
 
 For FASTQ extraction, we find that poretools is quicker on pass data, but poRe is quicker on fail data - we're not sure why!
 

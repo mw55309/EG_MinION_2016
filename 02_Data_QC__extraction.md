@@ -265,7 +265,7 @@ We extract events data with the get.events function.  As events data are co-loca
 get.events again returns a list, wth the template and complement events as data frames
 
 ```R
-f5 <- "MAP006-1/MAP006-1_downloads/pass//LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch300_file44_strand.fast5"
+f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5"
 ev <- get.events(f5, path.t = "/Analyses/Basecall_2D_000/", path.c = "/Analyses/Basecall_2D_000/")
 names(ev)
 head(ev$template)
@@ -295,30 +295,29 @@ Here we can see the models that ONT use to turn events into kmers, but this isn'
 
 ```R
 head(ev$template)
-# first event kmer is TGTTTC, event mean is 53.08718, model mean is 53.64642
-#       mean    start      stdv      length model_state model_level move
-#   53.08718 21803.40 0.7518740 0.007636122      TTTTTC    53.64642    0
+# first event kmer is TTGTTC, event mean is 48.36480, model mean is 48.83391
+     mean    start      stdv      length model_state model_level move
+1 48.36480 62493.94 0.5052998 0.007968127      TTGTTC    48.83391    0
 
-mods$template[mods$template$kmer=="TTTTTC",]
+mods$template[mods$template$kmer=="TTGTTC",]
 
 # however the model level for this kmer is quite different:
-#       kmer level_mean level_stdv  sd_mean  sd_stdv   weight
-#     TTTTTC   42.37862   0.518937 0.700281 0.223579 1805.695
-
+       kmer level_mean level_stdv  sd_mean  sd_stdv   weight
+4030 TTGTTC   41.94893   0.681952 0.898406 0.324886 1083.215
 ```
 
 What gives?  Well, ONT apply three parameters to the model to "scale" the model to fit each read.  These parameters are drift, scale and shift and they are read dependent!
 
 For this read, we have:
-* drift	0.004207995
-* scale	1.034605
-* shift	9.801294
+* drift	-9.076019e-06
+* scale	0.9627069
+* shift	8.449384
 
-The drift parameter is applied per event and is scaled by the number of seconds since the start of the read.  So "drift * (time - min(time))" can be subtracted from the event mean, or added to the model mean.
+The drift parameter is applied per event and is scaled by the number of seconds since the start of the read.  So "drift * (time - min(time))" can be subtracted from the event mean, or added to the model mean.  As we are dealing with the first event then the drift parameter isn't applied.
 
 Scale and shift are then applied in a classic linear model: (model.mean * scale) + shift.  In our case:
 
-* (42.37862 * 1.034605) + 9.801294 = 53.64643
+* (41.94893 * 0.9627069) + 8.449384 = 48.83391
 
 Which is the model value that shows up in the events table above. 
 
@@ -352,7 +351,7 @@ If you ran pore_rt() during your nanopore run then you will have access to a met
 
 ```R
 # load in pass data
-pass <- read.table("pass.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
+pass <- read.table("Data/run_metadata/pass.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
 
 # set standard/expected column names
 colnames(pass) <- c("filename","channel_num","read_num","read_start_time",
@@ -360,7 +359,7 @@ colnames(pass) <- c("filename","channel_num","read_num","read_start_time",
                     "run_id","read_id","barcode","exp_start")
 
 # load in the fail data
-fail <- read.table("fail.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
+fail <- read.table("Data/run_metadata/fail.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
 
 # set standard/expected column names
 colnames(fail) <- c("filename","channel_num","read_num","read_start_time",

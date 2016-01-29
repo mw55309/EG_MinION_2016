@@ -516,56 +516,24 @@ For FASTQ extraction, we find that poretools is quicker on pass data, but poRe i
 
 ```sh
 # extract 2D fastq
-poretools fastq --type 2D MAP006-1/MAP006-1_downloads/pass/ > MAP006-1.pass.2D.poretools.fastq
+poretools fastq --type 2D  Data/read_data/MAP006-1_2100000-2600000_fast5 > MAP006-1.2D.poretools.fastq
 
 # extract 2d fasta
-poretools fasta --type 2D MAP006-1/MAP006-1_downloads/pass/ > MAP006-1.pass.2D.poretools.fasta
+poretools fasta --type 2D Data/read_data/MAP006-1_2100000-2600000_fast5 > MAP006-1.2D.poretools.fasta
 
 # read length histogram
-poretools hist MAP006-1/MAP006-1_downloads/pass/
+# this doesn't work because we had trouble installing rpy2
+poretools hist Data/read_data/MAP006-1_2100000-2600000_fast5
 
 # yield plot
-poretools yield_plot MAP006-1/MAP006-1_downloads/pass/
+# this doesn't work because we had trouble installing rpy2
+poretools yield_plot Data/read_data/MAP006-1_2100000-2600000_fast5
 
 # occupancy plot
-poretools occupancy MAP006-1/MAP006-1_downloads/pass/
+# this doesn't work because we had trouble installing rpy2
+poretools occupancy Data/read_data/MAP006-1_2100000-2600000_fast5
 
 # find the longest
-poretools winner MAP006-1/MAP006-1_downloads/pass/
+poretools winner Data/read_data/MAP006-1_2100000-2600000_fast5
 ```
-
-## Aligning reads to a reference
-
-We can either use BWA or LAST.  In our experience BWA tends to be fast but less sensitive, and LAST tends to be slow but more sensitive.
-
-BWA straight to sorted BAM:
-
-```sh
-# bwa index genome
-bwa index NC_000913.3.fa
-
-# create fasta index for samtools
-samtools faidx NC_000913.3.fa
-
-# run bwa and pipe straight to samtools to create BAM
-bwa mem -x ont2d NC_000913.3.fa MAP006-1.pass.2D.poRe.fastq | \
-        samtools view -T NC_000913.3.fa -bS - | \
-        samtools sort -T 2D_vs_NC_000913.3.bwa -o 2D_vs_NC_000913.3.bwa.bam -
-```
-
-LAST straight to sorted BAM:
-
-```sh
-# create a LAST db of the reference genome
-lastdb MG1655 NC_000913.3.fa
-
-# align high quaklity reads to reference genome with LAST
-lastal -q 1 -a 1 -b 1 MG1655 MAP006-1.pass.2D.poRe.fasta > MAP006-1.pass.2D.poRe.fa.maf
-
-# convert the MAF to BAM with complete CIGAR (matches and mismatches)
-python nanopore-scripts/maf-convert.py sam MAP006-1.pass.2D.poRe.fa.maf | \
-    samtools view -T NC_000913.3.fa -bS - | \
-    samtools sort -T 2D_vs_NC_000913.3.last -o 2D_vs_NC_000913.3.last.bam -
-```
-
 

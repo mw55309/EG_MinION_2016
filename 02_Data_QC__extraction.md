@@ -206,7 +206,7 @@ library(poRe)
 We'll see how to extract FASTQ from entire directories below, but here are some exemples of single file analysis
 
 ```R
-f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5"
+f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5"
 get_fastq(f5)
 ```
 
@@ -265,7 +265,7 @@ We extract events data with the get.events function.  As events data are co-loca
 get.events again returns a list, wth the template and complement events as data frames
 
 ```R
-f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5"
+f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5"
 ev <- get.events(f5, path.t = "/Analyses/Basecall_2D_000/", path.c = "/Analyses/Basecall_2D_000/")
 names(ev)
 head(ev$template)

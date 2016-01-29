@@ -246,7 +246,7 @@ for (f5 in f5files) {
     # check fq is a list and contains 2D
     if (typeof(fq) == "list" && exists("2D", where=fq)) {
         # cat to "" (STDOUT but could be the name of a file
-	# change the cat = "" to a filename to see what happens
+        # change the cat = "" to a filename to see what happens
         cat(fq[["2D"]], file = "", sep = "\n", fill = FALSE)
     }
 }

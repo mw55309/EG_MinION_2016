@@ -295,29 +295,29 @@ Here we can see the models that ONT use to turn events into kmers, but this isn'
 
 ```R
 head(ev$template)
-# first event kmer is TTGTTC, event mean is 48.36480, model mean is 48.83391
+# first event kmer is GTGTTT, event mean is 50.23671, model mean is 50.36703
      mean    start      stdv      length model_state model_level move
-1 48.36480 62493.94 0.5052998 0.007968127      TTGTTC    48.83391    0
+1 50.23671 65351.52 0.6342780 0.049136786      GTGTTT    50.36703    0
 
-mods$template[mods$template$kmer=="TTGTTC",]
+mods$template[mods$template$kmer=="GTGTTT",]
 
 # however the model level for this kmer is quite different:
        kmer level_mean level_stdv  sd_mean  sd_stdv   weight
-4030 TTGTTC   41.94893   0.681952 0.898406 0.324886 1083.215
+3008 GTGTTT   43.29339    0.55339 0.78968 0.267732 623.0312
 ```
 
 What gives?  Well, ONT apply three parameters to the model to "scale" the model to fit each read.  These parameters are drift, scale and shift and they are read dependent!
 
-For this read, we have:
-* drift	-9.076019e-06
-* scale	0.9627069
-* shift	8.449384
+For this template read, we have:
+* drift	0.0003234845
+* scale	0.9643541
+* shift	8.616875
 
 The drift parameter is applied per event and is scaled by the number of seconds since the start of the read.  So "drift * (time - min(time))" can be subtracted from the event mean, or added to the model mean.  As we are dealing with the first event then the drift parameter isn't applied.
 
 Scale and shift are then applied in a classic linear model: (model.mean * scale) + shift.  In our case:
 
-* (41.94893 * 0.9627069) + 8.449384 = 48.83391
+* (43.29339 * 0.9643541) + 8.616875 = 50.36703
 
 Which is the model value that shows up in the events table above. 
 

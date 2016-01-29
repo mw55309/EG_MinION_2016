@@ -381,7 +381,7 @@ max(pass$len2d)
 pass[pass$len2d==max(pass$len2d),]
 
 # We now know the longest read
-longest <- "MAP006-1/MAP006-1_downloads/pass//LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch153_file57_strand.fast5"
+longest <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch153_file57_strand.fast5"
 lfq <- get_fastq(longest, which="2D")
 lfa <- get_fasta(longest, which="2D")
 
@@ -407,13 +407,6 @@ head(yield.p)
 head(yield.f)
 ```
 
-To plot for a single barcode (Nick's SQK-MAP-006 data is not barcoded):
-
-```R
-barcode <- "no_barcode"
-plot.cumulative.yield(pass[pass$barcode==barcode,])
-```
-
 ### Read length histogram
 
 We can see a histogram of read lengths
@@ -434,6 +427,7 @@ fail [fail$tlen==379692,]
 Plotting in ggplot2 if you really want to
 
 ```R
+library(ggplot2)
 m <- ggplot(pass, aes(x=len2d))
 m + geom_histogram(binwidth=500)
 ```
@@ -484,42 +478,34 @@ plot.channel.summary(fail.s, report.col="l2d")
 If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have top open each fle and extract the attributes.  For demo purposes, we have selected 10% randomly of Nick's SQK-MAP-006 data in folder MAP006-1.10 
 
 ```R
-pass <- read.meta.info("MAP006-1.10/MAP006-1_downloads/pass/", 
+pass <- read.meta.info("Data/read_data/MAP006-1_2100000-2600000_fast5/", 
                         path.t="/Analyses/Basecall_2D_000/", 
                         path.c="/Analyses/Basecall_2D_000/", 
                         pass="P")
                         
-fail <-  read.meta.info("MAP006-1.10/MAP006-1_downloads/fail/", 
-                        path.t="/Analyses/Basecall_2D_000/", 
-                        path.c="/Analyses/Basecall_2D_000/", 
-                        pass="F")
-                        
 plot.cumulative.yield(pass)
-plot.cumulative.yield(fail)
 ```
 
 ## Extracting FASTQ from the command-line
 
 
-Command-line scripts for extracting FASTQ can be pulled from [github](https://github.com/mw55309/poRe_scripts).  For Nick's SQK-MAP-006 data we use the old_format scripts:
+Command-line scripts for extracting FASTQ can be pulled from [github](https://github.com/mw55309/poRe_scripts).  There are scripts there that can parse both the old and new format of fast5 file, but we have installed the old format scripts here:
 
 ```sh
 # 2D
-./poRe_scripts/old_format/extract2D MAP006-1/MAP006-1_downloads/pass/ > MAP006-1.pass.2D.poRe.fastq
+extract2D Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.2D.fastq
 
 # template
-./poRe_scripts/old_format/extractTemplate MAP006-1/MAP006-1_downloads/pass/ > MAP006-1.pass.template.poRe.fastq
+extractTemplate Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.template.fastq
 
 # complement
-./poRe_scripts/old_format/extractComplement MAP006-1/MAP006-1_downloads/pass/ > MAP006-1.pass.complement.poRe.fastq
+extractComplement Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.complement.fastq
 ```
-
-For any newer data, we can use the scripts in the "new_format" folder.
 
 FASTQ can be converted to FASTA using seqtk
 
 ```sh
-seqtk seq -A MAP006-1.pass.2D.poRe.fastq > MAP006-1.pass.2D.poRe.fasta
+seqtk seq -A MAP006-1.2D.fastq > MAP006-1.2D.fasta
 ```
 
 ## poretools

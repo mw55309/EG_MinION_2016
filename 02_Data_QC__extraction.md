@@ -477,7 +477,7 @@ plot.channel.summary(fail.s, report.col="l2d")
 ```
 
 ### Extracting meta-data from fast5
-If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have to open each file and extract the attributes.  For demo purposes, we have selected 10% randomly of Nick's SQK-MAP-006 data in folder MAP006-1.10 
+If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have to open each file and extract the attributes.  For the 2666 files we have selected here,  and on this VM, it takes about 4 minutes.
 
 ```R
 pass <- read.meta.info("Data/read_data/MAP006-1_2100000-2600000_fast5/", 

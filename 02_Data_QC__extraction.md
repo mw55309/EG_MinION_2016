@@ -504,10 +504,10 @@ extractTemplate Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.templa
 extractComplement Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.complement.fastq
 ```
 
-FASTQ can be converted to FASTA using seqtk
+FASTQ can be converted to FASTA using a small script
 
 ```sh
-seqtk seq -A MAP006-1.2D.fastq > MAP006-1.2D.fasta
+porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
 ```
 
 ## poretools

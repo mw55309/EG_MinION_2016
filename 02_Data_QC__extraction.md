@@ -6,7 +6,7 @@
 Oxford Nanopore are very bad at releasing official definitions of file formats, therefore unfortunately much guess work is involved.
 
 Most of the early ONT data was released from the SQK-MAP-005 kits - this includes 
-[the MARC data](http://f1000research.com/articles/4-1075/v1), [Mick's B fragilis dataset](http://gigadb.org/dataset/100177) and [Nick's first E coli dataset](http://gigadb.org/dataset/100102).  These data were encoded in what can be best described as FAST5 v.1.0 (ONT don't actually assign version numbers!)
+[the MARC data](http://f1000research.com/articles/4-1075/v1), [Mick's B fragilis dataset](http://gigadb.org/dataset/100177) and [Nick Loman's first E coli dataset](http://gigadb.org/dataset/100102).  These data were encoded in what can be best described as FAST5 v.1.0 (ONT don't actually assign version numbers!)
 
 Then SQK-MAP-006 came along, which was a major chemistry change that increased throughput.  A major change is that metrichor has switched from a 5mer model to a 6mer model.   [Nick has also released E coli SQK-MAP-006 data](http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/), and because he was very quick to do this, the files are still in FAST5 v.1.0
 
@@ -75,24 +75,24 @@ h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch
 /UniqueGlobalKey/tracking_id Group
 ```
 
-We can compare this to a base-called file
+We can compare this to the corresponding base-called file
 
-```
-h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5
+```sh
+h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```
 ```
 /                        Group
 /Analyses                Group
 /Analyses/Basecall_2D_000 Group
 /Analyses/Basecall_2D_000/BaseCalled_2D Group
-/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {9464}
+/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {8429}
 /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_complement Group
-/Analyses/Basecall_2D_000/BaseCalled_complement/Events Dataset {12020}
+/Analyses/Basecall_2D_000/BaseCalled_complement/Events Dataset {6677}
 /Analyses/Basecall_2D_000/BaseCalled_complement/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_complement/Model Dataset {4096}
 /Analyses/Basecall_2D_000/BaseCalled_template Group
-/Analyses/Basecall_2D_000/BaseCalled_template/Events Dataset {7550}
+/Analyses/Basecall_2D_000/BaseCalled_template/Events Dataset {7090}
 /Analyses/Basecall_2D_000/BaseCalled_template/Fastq Dataset {SCALAR}
 /Analyses/Basecall_2D_000/BaseCalled_template/Model Dataset {4096}
 /Analyses/Basecall_2D_000/Configuration Group
@@ -108,8 +108,8 @@ h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1
 /Analyses/Basecall_2D_000/Configuration/recipes Group
 /Analyses/Basecall_2D_000/Configuration/split_hairpin Group
 /Analyses/Basecall_2D_000/HairpinAlign Group
-/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {6600}
-/Analyses/Basecall_2D_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_121/Events}
+/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {6261}
+/Analyses/Basecall_2D_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_151/Events}
 /Analyses/Basecall_2D_000/Log Dataset {SCALAR}
 /Analyses/Basecall_2D_000/Summary Group
 /Analyses/Basecall_2D_000/Summary/basecall_1d_complement Group
@@ -132,7 +132,7 @@ h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1
 /Analyses/Calibration_Strand_000/Configuration/post_processing.5000Hz Group
 /Analyses/Calibration_Strand_000/Configuration/recipes Group
 /Analyses/Calibration_Strand_000/Configuration/split_hairpin Group
-/Analyses/Calibration_Strand_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_121/Events}
+/Analyses/Calibration_Strand_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_151/Events}
 /Analyses/Calibration_Strand_000/Log Dataset {SCALAR}
 /Analyses/Calibration_Strand_000/Summary Group
 /Analyses/Calibration_Strand_000/Summary/calibration_strand_2d Group
@@ -144,8 +144,8 @@ h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1
 /Analyses/EventDetection_000/Configuration/event_detection Group
 /Analyses/EventDetection_000/Configuration/hairpin_detection Group
 /Analyses/EventDetection_000/Reads Group
-/Analyses/EventDetection_000/Reads/Read_121 Group
-/Analyses/EventDetection_000/Reads/Read_121/Events Dataset {19673}
+/Analyses/EventDetection_000/Reads/Read_151 Group
+/Analyses/EventDetection_000/Reads/Read_151/Events Dataset {13837}
 /Sequences               Group
 /Sequences/Meta          Group
 /UniqueGlobalKey         Group
@@ -156,24 +156,24 @@ h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1
 
 We can also use h5ls -d to extract specific datasets from the files (note the /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq appended to the filename):
 ```sh
- h5ls -d Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5/Analyses/Basecall_2D_000/BaseCalled_2D/Fastq
+ h5ls -d Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5/Analyses/Basecall_2D_000/BaseCalled_2D/Fastq
  ```
  ```
 Fastq                    Dataset {SCALAR}
     Data:
-        (0) "@49f8b333-6e60-4196-8539-00ef6e1c705d_Basecall_2D_000_2d LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand\nAAACTTGCCTGCTTACTGGAGCTCGCGATG
+        (0) "@1b63c36c-fb28-4cf3-8df1-3eb075eb00b2_Basecall_2D_000_2d LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand\nCATTTTCTTTCTTACTGATATTAGTTTTTGG
    ...
    <snip>
    ...
-   &&'''(&&%&%'''&&'&&''&'&&(&(%('&%&%&'&&%%%\n"
+   ,*)))+,))*)***++*))**+)))\n"
 ```
-(but beware the odd "+'((" ''' repeats 8 times "(('((*'" in the quality socres!
+(but beware the odd " '+' repeats 8 times " in the quality socres!
 
 
 Unsurprisingly h5dump dumps the entire file to STDOUT
 
 ```sh
-h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5
+h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```
 
 ## Browsing HDF5 files
@@ -185,7 +185,7 @@ Any HDF5 file can be opened using hdfview and browsed/edited in a GUI
 hdfview Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
 
 # base called
-hdfview Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch485_file126_strand.fast5 &
+hdfview Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
 ```
 
 ## Basic manipulation in poRe

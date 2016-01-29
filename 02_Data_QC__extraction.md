@@ -453,7 +453,7 @@ fail.s <- summarise.by.channel(fail)
 head(fail.s)
 ```
 
-The rows of the result are the channel numbers, and the columns tell us how many channels appear in our summary data, and either the number (n) or sumulative length (l) of template, complement and 2d reads from each channel.
+The rows of the result are the channel numbers, and the columns tell us how many channels appear in our summary data, and either the number (n) or cumulative length (l) of template, complement and 2d reads from each channel.
 
 We can plot these:
 
@@ -477,7 +477,7 @@ plot.channel.summary(fail.s, report.col="l2d")
 ```
 
 ### Extracting meta-data from fast5
-If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have top open each fle and extract the attributes.  For demo purposes, we have selected 10% randomly of Nick's SQK-MAP-006 data in folder MAP006-1.10 
+If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have to open each file and extract the attributes.  For demo purposes, we have selected 10% randomly of Nick's SQK-MAP-006 data in folder MAP006-1.10 
 
 ```R
 pass <- read.meta.info("Data/read_data/MAP006-1_2100000-2600000_fast5/", 

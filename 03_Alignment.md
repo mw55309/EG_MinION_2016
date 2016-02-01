@@ -81,23 +81,54 @@ pid <- 100 * prof$matches / (prof$matches + prof$deletions + prof$insertions + p
 boxplot(pid, ylab="% ID", col="skyblue2", xlab="2D")
 ```
 
-# Calling variants with nanopolish
+# Aligning events with Nanopolish EventAlign
 
 Nanopolish was written by Jared Simpson and represents a suite of tools for aligning events to a reference sequence and working with those (using HMMs) to improve e.g. SNP calling and consensus accuracy
 
 Nanopolish eventalign aligns the raw squiggle data directly to a reference genome, but requires a sequence-based alignment to guide it.
 
-Once we have events aligned, we can do SNP calling using Nanopolish variants
+**If you run the command below it can take up to ~1hr on the VM we're working on, so I recommend you don't**
 
 ```bash
-nanopolish eventalign --reads MAP006-1.2D.fasta -b 2D_vs_MG1655.bwa.bam -g Data/reference/Ecoli_MG1655/MG1655.fa --sam \|
-           samtools view -bS - \|
-           samtools sort - -o MAP006-1.2D.eventalign.bam
+nanopolish eventalign --print-read-names --scale-events --reads MAP006-1.2D.fasta \
+                      -b 2D_vs_MG1655.bwa.bam -g Data/reference/Ecoli_MG1655/MG1655.fa \
+                      > Data/eventalign/MAP006-1.2D.eventalign.txt
 
-samtools index MAP006-1.2D.eventalign.bam
+# eventalign can also output SAM format with the --sam flag
 ```
 
-We can then SNP call these with the variants module
+We have a smaller dataset pre-run in Data/eventalign/singleread.eventalign.txt so let's take a look at that:
+
 ```bash
-
+head Data/eventalign/singleread.eventalign.txt
 ```
+
+Now we can visualise in R
+
+```bash
+R
+```
+```R
+# read in eventalign output as a data.frame
+d <- read.table("Data/eventalign/singleread.eventalign.txt", header=TRUE, sep="\t")
+
+# let's just look at the template strand
+dt <- d[d$strand=="t",]
+
+# plot.as.squiggle is a utility function in R that takes a vector of
+# numbers and plots them as if they were an event-driven nanopore
+# squiggle.  We need this because in real nanopore data, the events
+# are differing times apart, so can be hard to visualise, whereas
+# plot.as.squiggle simply uses the same false time interval
+
+# get data for the first 100 event means
+em <- plot.as.squiggle(dt$event_level_mean[1:100], plot=FALSE)
+
+# get data for the first 100 model means they are aligned to
+mm <- plot.as.squiggle(dt$model_mean[1:100], plot=FALSE)
+
+# plot and visualise
+plot(em$times, em$means, type="l", ylab="mean signal", xlab="fake time")
+lines(mm$times, mm$means, col="red")
+```
+

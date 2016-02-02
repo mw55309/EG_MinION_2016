@@ -26,6 +26,9 @@ samtools index 2D_vs_MG1655.bwa.bam
 LAST straight to sorted BAM:
 
 ```sh
+# first create the fasta file
+porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
+
 # create a LAST db of the reference genome
 lastdb MG1655 Data/reference/Ecoli_MG1655/MG1655.fa
 

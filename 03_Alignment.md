@@ -112,6 +112,9 @@ Now we can visualise in R
 R
 ```
 ```R
+# Load the poRe library for the plot.as.squiggle function...
+library(poRe)
+
 # read in eventalign output as a data.frame
 d <- read.table("Data/eventalign/singleread.eventalign.txt", header=TRUE, sep="\t")
 

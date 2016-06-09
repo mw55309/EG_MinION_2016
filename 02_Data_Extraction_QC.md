@@ -1,5 +1,5 @@
 # Edinburgh Genomics - MinION Bioinformatics
-## Nanopore Data: FAST5, FASTA/Q, Events and Hairpins
+## Nanopore Data: FAST5, FASTA/Q, Events and Metadata
 
 ## FAST5 Files 
 

@@ -13,7 +13,7 @@ In FAST5 files major data blocks like sequences are stored in datasets, while me
 
 ### A Brief History
 
-Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside ONT FAST5 files.
+Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside FAST5 files.
 
 Most of the early ONT data was released from the SQK-MAP-005 kits - this includes 
 [the MARC data](http://f1000research.com/articles/4-1075/v1), [Mick's B fragilis dataset](http://gigadb.org/dataset/100177) and [Nick Loman's first E coli dataset](http://gigadb.org/dataset/100102).  These data were encoded in what can be best described as FAST5 v.1.0 (ONT don't actually assign version numbers!)

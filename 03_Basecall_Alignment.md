@@ -68,6 +68,7 @@ Finally, Graphmap:
 
 ```sh
 ~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa -d MAP006-1.2D.fastq -o gm.sam
+
 samtools view -Sb gm.sam | \
 samtools sort -o 2D_vs_MG1655.graphmap.bam - 
 

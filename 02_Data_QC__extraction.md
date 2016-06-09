@@ -26,7 +26,6 @@ In November 2015, ONT released a new file format, which we can call FAST5 v1.1. 
 
 In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore and SQK-MAP-006). 
 
-Inline-style: 
 ![](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "The R9 Pore")
 
 #### Major file format differences

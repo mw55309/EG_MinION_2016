@@ -3,7 +3,17 @@
 
 ## Fast5 Files - A Brief History
 
-MinION data files are FAST5 files, and FAST5 files are fundamentally [HDF5 files](https://www.hdfgroup.org/HDF5/whatishdf5.html). HDF5 files are binary files with a hierarchical, filesystem-like data format; all data are organised into a tree. HDF5 supports a wide variety of data types in the same file, and the format is portable, extensible and [widely supported] (https://www.hdfgroup.org/products/hdf5_tools/SWSummarybyName.htm).
+MinION data files are FAST5 files, and FAST5 files are fundamentally [HDF5 files](https://www.hdfgroup.org/HDF5/whatishdf5.html). HDF5 files are organized in a hierarchical, filesystem-like structure, with two primary object types: *groups* and *datasets*.
+
+* Groups are container structures which can hold datasets and other groups
+* Datasets are multidimensional arrays of data
+* Metadata is stored in the form of user-defined, named *attributes* attached to groups and datasets
+
+
+HDF5 files are binary files with a hierarchical, filesystem-like data format. HDF5 supports a wide variety of data types in the same file, and the format is portable, extensible and [widely supported] (https://www.hdfgroup.org/products/hdf5_tools/SWSummarybyName.htm). 
+
+
+Data inside HDF5 files are organised into a tree of container structures called Groups. 
 
 Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside ONT FAST5 files.
 

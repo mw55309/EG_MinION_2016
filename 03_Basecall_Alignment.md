@@ -2,7 +2,11 @@
 
 ## Alternative Basecallers
 
-In addition to the ONT cloud-based basecaller (EPI2ME/Metrichor), two alternative basecallers have recently been developed in the community. We are going to take a quick look at each of them here.
+In addition to the ONT cloud-based basecaller (EPI2ME/Metrichor), two alternative basecallers have recently been developed in the community. They were released almost simultaneously. We are going to take a quick look at each of them here.
+
+### Nanocall
+
+
 
 ## Read alignment
 

@@ -1,7 +1,7 @@
 # Edinburgh Genomics - MinION Bioinformatics
 ## Nanopore Data: FAST5, FASTA/Q, Events and Hairpins
 
-## Fast5 Files - A Brief History
+## Fast5 Files 
 
 MinION data files are FAST5 files, and FAST5 files are fundamentally [HDF5 files](https://www.hdfgroup.org/HDF5/whatishdf5.html). HDF5 supports storage of a wide variety of data types in the same file, and the format is portable, extensible and [widely supported] (https://www.hdfgroup.org/products/hdf5_tools/SWSummarybyName.htm). HDF5 files are binary files organized in a hierarchical, filesystem-like structure, with two primary object types: *groups* and *datasets*.
 
@@ -10,6 +10,8 @@ MinION data files are FAST5 files, and FAST5 files are fundamentally [HDF5 files
 * *Attributes* are user-defined data structures attached to groups and datasets, providing extra information about the HDF5 object to which they are atached.
 
 In FAST5 files major data blocks like sequences are stored in datasets, while metadata are stored in group and dataset attributes.
+
+### A Brief History
 
 Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside ONT FAST5 files.
 

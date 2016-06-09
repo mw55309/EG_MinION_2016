@@ -22,12 +22,6 @@ Then SQK-MAP-006 came along, which was a major chemistry change that increased t
 
 In November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but moving things around can complicate data analysis.
 
-####R9
-
-In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore and SQK-MAP-006). 
-
-![](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "The R9 Pore")
-
 #### Major file format differences
 
 The major difference is where the template and complement data are.  In version 1.0 they are all in a group called Basecall_2D_000; however, in v1.1 they have been moved to Basecall_1D_000
@@ -42,6 +36,13 @@ FAST5 v1.1
 * /Analyses/Basecall_**1D**_000/BaseCalled_template/
 * /Analyses/Basecall_**1D**_000/BaseCalled_complement/
 
+####R9
+
+In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore and SQK-MAP-006):
+
+![](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "The R9 Pore")
+
+While we focus on R7 MAP-006 files today, we also have some R9 data files to look at, also from [Nick Loman's lab](https://twitter.com/pathogenomenick/status/735822156693688320). A new feature of these files is that they include Raw data in a new top-level group (/Raw).
 
 ## File handling
 

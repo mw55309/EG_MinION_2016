@@ -1,4 +1,7 @@
 # Edinburgh Genomics - MinION Bioinformatics
+
+## Alternative Basecallers
+
 ## Read alignment
 
 ## Aligning reads to a reference

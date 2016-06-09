@@ -320,7 +320,6 @@ Fastq                    Dataset {SCALAR}
 ```
 (but beware the odd " '+' repeats 8 times " in the quality socres!
 
-
 Unsurprisingly h5dump dumps the entire file to STDOUT. Quite a bit to get through...
 
 ```sh
@@ -338,6 +337,8 @@ hdfview Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch
 # base called
 hdfview Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
 ```
+
+Try opening the two R9 data files (/Data/read_data/nanopore_R9*), and see if you can spot any difference (hint - check the logs and summary groups).
 
 ## Basic manipulation in poRe
 

@@ -76,7 +76,7 @@ samtools sort -o 2D_vs_MG1655.graphmap.bam -
 samtools index 2D_vs_MG1655.graphmap.bam
 ```
 
-### Viewing Alignments in IGV
+## Viewing Alignments in IGV
 
 You can read about viewing alignments in IGV [here](https://www.broadinstitute.org/software/igv/AlignmentData). We start by running 
 
@@ -86,7 +86,7 @@ igv.sh
 
 If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more 2D_vs_MG1655.<aligner>.bam files to see how they compare.
 
-# Assessing the accuracy of alignment
+## Assessing the accuracy of alignment
 Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST not BWA, due to differences in the cigar strings:
 
 ```bash
@@ -126,7 +126,7 @@ pid <- 100 * prof$matches / (prof$matches + prof$deletions + prof$insertions + p
 boxplot(pid, ylab="% ID", col="skyblue2", xlab="2D")
 ```
 
-# Aligning events with Nanopolish EventAlign
+## Aligning events with Nanopolish EventAlign
 
 Nanopolish was written by Jared Simpson and represents a suite of tools for aligning events to a reference sequence and working with those (using HMMs) to improve e.g. SNP calling and consensus accuracy
 

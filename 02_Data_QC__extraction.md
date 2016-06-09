@@ -42,7 +42,7 @@ In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore 
 
 ![](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "The R9 Pore")
 
-While we focus on R7 MAP-006 files today, we also have some R9 data files to look at, also from [Nick Loman's lab](https://twitter.com/pathogenomenick/status/735822156693688320). A new feature of these files is that they include Raw data in a new top-level group (/Raw).
+R9 offers greater accuracy and sequences at higher speeds, but software tools are still adapting to the new data, so we focus on R7 MAP-006 files today. However, we do have some R9 data files to look at, also from [Nick Loman's lab](https://twitter.com/pathogenomenick/status/735822156693688320). A major new feature of these files is that they include Raw data in a new top-level group (/Raw).
 
 ## File handling
 

@@ -321,7 +321,7 @@ Fastq                    Dataset {SCALAR}
 (but beware the odd " '+' repeats 8 times " in the quality socres!
 
 
-Unsurprisingly h5dump dumps the entire file to STDOUT
+Unsurprisingly h5dump dumps the entire file to STDOUT. Quite a bit to get through...
 
 ```sh
 h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5

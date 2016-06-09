@@ -662,6 +662,20 @@ FASTQ can be converted to FASTA using a small script
 porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
 ```
 
+## poRe Parallel GUI
+
+A convenient alternative method of data extraction and basic run QC is offered by a second pore GUI: pore_parellel(). The parallel GUI is designed to process batches of base-called files, rapidly extracting FASTQ and metadata using parallel code.
+This GUI also provides plotting output similar to pore rt(). There are two operating modes:
+
+1. Data Extraction
+* Select source, target folders
+* Select output file type(s) and Dataset(s)
+* Run Data Extraction
+
+2. Plotting
+* Choose Metadata File
+* Show Plots (for selected metadata)
+
 ## poretools
 
 Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, which is why we chose to pre-extract the necessary meta-data.

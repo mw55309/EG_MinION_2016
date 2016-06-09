@@ -67,11 +67,16 @@ Sequences                Group
 UniqueGlobalKey          Group
 ```
 
+And here is an R9 example:
+
 ```sh
 h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```
 ```
-
+Analyses                 Group
+Raw                      Group
+Sequences                Group
+UniqueGlobalKey          Group
 ```
 
 Adding the -r flag makes this recursive

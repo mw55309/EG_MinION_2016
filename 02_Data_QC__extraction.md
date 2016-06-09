@@ -20,7 +20,12 @@ Most of the early ONT data was released from the SQK-MAP-005 kits - this include
 
 Then SQK-MAP-006 came along, which was a major chemistry change that increased throughput.  A major change is that metrichor has switched from a 5mer model to a 6mer model. Late last year, [Nick released E coli SQK-MAP-006 data](http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/), and because he was very quick to do this, the files are still in FAST5 v.1.0. This is the main data set we will be working with today.
 
-In November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but can make data analysis difficult.
+In November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but moving things around can complicate data analysis.
+
+In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore and SQK-MAP-006). 
+
+Inline-style: 
+![alt text](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "Logo Title Text 1")
 
 #### Major file format differences
 

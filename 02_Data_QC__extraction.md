@@ -70,7 +70,7 @@ UniqueGlobalKey          Group
 And here is an R9 example:
 
 ```sh
-h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+h5ls Data/read_data/nanopore2_R9_MinKNOW_0.51_Ecoli_K12_MG1655_lambda_1004_1_ch192_read46_strand.fast5
 ```
 ```
 Analyses                 Group
@@ -79,7 +79,7 @@ Sequences                Group
 UniqueGlobalKey          Group
 ```
 
-Adding the -r flag makes this recursive
+Adding the -r flag makes the listing recursive
 ```sh
 h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```

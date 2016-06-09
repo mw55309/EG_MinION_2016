@@ -56,7 +56,7 @@ find Data -type d
 
 h5ls and h5dump can be quite useful.
 
-h5ls reveals the structure of fast5 files.  Adding the -r flag makes this recursive:
+h5ls reveals the top-level structure of fast5 files. Here is an R7, MAP006 file:
 
 ```sh
 h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
@@ -65,6 +65,13 @@ h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_
 Analyses                 Group
 Sequences                Group
 UniqueGlobalKey          Group
+```
+
+```sh
+h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+```
+```
+
 ```
 
 Adding the -r flag makes this recursive

@@ -2,15 +2,21 @@
 
 ## Alternative Basecallers
 
-In addition to the ONT cloud-based basecaller (EPI2ME/Metrichor), two alternative basecallers have recently been developed in the community. They were released almost simultaneously. We are going to take a quick look at each of them here.
+Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community, and released almost simultaneously. We are going to take a quick look at each of them here.
 
 ### Nanocall
 
+[Nanocall](https://github.com/mateidavid/nanocall) was developed in Jared Simpson's lab, and performs basecalling using a hidden markov model (like the original Metrichor). For reasons of time, we have put just a few per-basecalled files in ~/Data/pre_basecall.
 
+```sh
+nanocall/bin/nanocall -t 2 ~/Data/pre_basecall >~/Data/pre_basecall/output.fa 2>~/Data/pre_basecall/nanocall.log
+```
 
 ## Read alignment
 
 ## Aligning reads to a reference
+
+A number of different alignment tools have been proposed 
 
 We can either use BWA or LAST.  In our experience BWA tends to be fast but less sensitive, and LAST tends to be slow but more sensitive.
 

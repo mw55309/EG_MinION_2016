@@ -3,16 +3,14 @@
 
 ## Fast5 Files - A Little History
 
-Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is.
+Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside ONT FAST5 files.
 
 Most of the early ONT data was released from the SQK-MAP-005 kits - this includes 
 [the MARC data](http://f1000research.com/articles/4-1075/v1), [Mick's B fragilis dataset](http://gigadb.org/dataset/100177) and [Nick Loman's first E coli dataset](http://gigadb.org/dataset/100102).  These data were encoded in what can be best described as FAST5 v.1.0 (ONT don't actually assign version numbers!)
 
-Then SQK-MAP-006 came along, which was a major chemistry change that increased throughput.  A major change is that metrichor has switched from a 5mer model to a 6mer model.   [Nick has also released E coli SQK-MAP-006 data](http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/), and because he was very quick to do this, the files are still in FAST5 v.1.0
+Then SQK-MAP-006 came along, which was a major chemistry change that increased throughput.  A major change is that metrichor has switched from a 5mer model to a 6mer model.   [Late last year, Nick released E coli SQK-MAP-006 data](http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/), and because he was very quick to do this, the files are still in FAST5 v.1.0. This is the main data set we will be working with today.
 
-However, in November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but can make data analysis difficult.
-
-We will work here with SQK-MAP-006 data from Nick (so V1.0)
+In November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but can make data analysis difficult.
 
 #### Major file format differences
 

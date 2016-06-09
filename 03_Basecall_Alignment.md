@@ -2,15 +2,21 @@
 
 ## Alternative Basecallers
 
-Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community, and released almost simultaneously. We are going to take a quick look at each of them here.
+Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). They were released almost simultaneously. We are going to take a quick look at each of them here.
 
 ### Nanocall
 
-[Nanocall](https://github.com/mateidavid/nanocall) was developed in Jared Simpson's lab, and performs basecalling using a hidden markov model (like the original Metrichor). For reasons of time, we have put just a few per-basecalled files in ~/Data/pre_basecall.
+[Nanocall](https://github.com/mateidavid/nanocall) was developed in Jared Simpson's lab, and performs basecalling using a hidden markov model (like the original Metrichor). For reasons of time, we have put just a couple of pre-basecalled files in ~/Data/pre_basecall. We can basecall them with nanocall like this:
 
 ```sh
-nanocall/bin/nanocall -t 2 ~/Data/pre_basecall >~/Data/pre_basecall/output.fa 2>~/Data/pre_basecall/nanocall.log
+nanocall/bin/nanocall -t 2 ~/Data/pre_basecall >~/Data/pre_basecall/nanocall_output.fa 2>~/Data/pre_basecall/nanocall.log
 ```
+
+Nanocall just does 1D basecalling at the moment. In the ouptput file, you will find template and complement basecalls for both files.
+
+### Deepnano
+
+[Deepnano](https://bitbucket.org/vboza/deepnano) uses a deep recurrent neural network model to basecall.
 
 ## Read alignment
 

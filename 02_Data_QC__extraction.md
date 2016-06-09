@@ -675,6 +675,15 @@ Data Extraction
 Plotting
 * Choose Metadata File
 * Show Plots (for selected metadata)
+* 
+
+We can launch the parellel GUI from a terminal:
+
+```sh
+R
+library(poRe)
+pore_parallel()
+```
 
 ## poretools
 

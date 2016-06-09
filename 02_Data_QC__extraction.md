@@ -667,12 +667,12 @@ porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
 A convenient alternative method of data extraction and basic run QC is offered by a second pore GUI: pore_parellel(). The parallel GUI is designed to process batches of base-called files, rapidly extracting FASTQ and metadata using parallel code.
 This GUI also provides plotting output similar to pore rt(). There are two operating modes:
 
-1. Data Extraction
+Data Extraction
 * Select source, target folders
 * Select output file type(s) and Dataset(s)
 * Run Data Extraction
 
-2. Plotting
+Plotting
 * Choose Metadata File
 * Show Plots (for selected metadata)
 

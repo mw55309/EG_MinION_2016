@@ -179,4 +179,6 @@ mm <- plot.as.squiggle(dt$model_mean[1:100], plot=FALSE)
 plot(em$times, em$means, type="l", ylab="mean signal", xlab="fake time")
 lines(mm$times, mm$means, col="red")
 ```
+## Hairpins
 
+Finally, we will take a look at hairpins. Hairpins divide the template and complement components of a MinION read. The hairpins form a characteristic current signal that is detected at the start of the basecalling process and accurate detection is crucial to accurate basecalling. As I will show in a demo, they look rather different in R7 and R9, and are not always easy to detect correctly.

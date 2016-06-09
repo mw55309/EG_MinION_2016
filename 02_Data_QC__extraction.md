@@ -665,7 +665,15 @@ porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
 ## poRe Parallel GUI
 
 A convenient alternative method of data extraction and basic run QC is offered by a second pore GUI: pore_parellel(). The parallel GUI is designed to process batches of base-called files, rapidly extracting FASTQ and metadata using parallel code.
-This GUI also provides plotting output similar to pore rt(). There are two operating modes:
+This GUI also provides plotting output similar to pore rt(). We can launch the parellel GUI from a terminal:
+
+```sh
+R
+library(poRe)
+pore_parallel()
+```
+
+There are two operating modes:
 
 Data Extraction
 * Select source, target folders
@@ -675,21 +683,12 @@ Data Extraction
 Plotting
 * Choose Metadata File
 * Show Plots (for selected metadata)
-* 
 
-We can launch the parellel GUI from a terminal:
-
-```sh
-R
-library(poRe)
-pore_parallel()
-```
+We'll try extracting FASTQ data, and loading up a metadata file for visualisation.
 
 ## poretools
 
 Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, which is why we chose to pre-extract the necessary meta-data.
-
-For FASTQ extraction, we find that poretools is quicker on pass data, but poRe is quicker on fail data - we're not sure why!
 
 ```sh
 # extract 2D fastq

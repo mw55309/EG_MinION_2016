@@ -22,10 +22,12 @@ Then SQK-MAP-006 came along, which was a major chemistry change that increased t
 
 In November 2015, ONT released a new file format, which we can call FAST5 v1.1.  The major difference is that the template and complement FASTQ and events data have been moved to a new group within the FAST5 file, separate to the 2D data.  This actually makes logical sense, but moving things around can complicate data analysis.
 
+####R9
+
 In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore and SQK-MAP-006). 
 
 Inline-style: 
-![alt text](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "Logo Title Text 1")
+![](https://2.bp.blogspot.com/-4Fb6ZFsqPkY/Vt-EBUVLsCI/AAAAAAAAhTs/kT0-tXx1s4A/s1600/2016-03-08-CsgG.PNG "The R9 Pore")
 
 #### Major file format differences
 

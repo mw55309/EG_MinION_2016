@@ -16,7 +16,7 @@ Nanocall just does 1D basecalling at the moment. In the ouptput file, you will f
 
 ### Deepnano
 
-[Deepnano](https://bitbucket.org/vboza/deepnano) uses a deep recurrent neural network (RNN) model to call bases. ONT is also moving towards RNN basecalling and it is likely this will be the main method for calling R9 (and future data) going forward. Deepnano is a python package built on the Theano framework. We can run it ona directory of fast5 files like this:
+[Deepnano](https://bitbucket.org/vboza/deepnano) uses a deep recurrent neural network (RNN) model to call bases. ONT is also moving towards RNN basecalling and it is likely this will be the main method for calling R9 (and future data) going forward. Deepnano is a python package built on the Theano framework. We can run it on a directory of FAST5 files like this:
 
 ```sh
 python ~/deepnano/basecall_no_metrichor.py --directory ~/Data/pre_basecall --output ~/Data/pre_basecall/deepnano.fasta

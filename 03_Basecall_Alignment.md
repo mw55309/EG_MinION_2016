@@ -69,6 +69,10 @@ maf-convert.py sam MAP006-1.2D.maf | \
 samtools index 2D_vs_MG1655.last.bam
 ```
 
+### Visualising Alignments in IGV
+
+
+
 # Assessing the accuracy of alignment
 Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST not BWA, due to differences in the cigar strings:
 

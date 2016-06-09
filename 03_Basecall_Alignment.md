@@ -26,9 +26,7 @@ python ~/deepnano/basecall_no_metrichor.py --directory ~/Data/pre_basecall --out
 
 ## Aligning reads to a reference
 
-A number of different alignment tools have been proposed 
-
-We can either use BWA or LAST.  In our experience BWA tends to be fast but less sensitive, and LAST tends to be slow but more sensitive.
+A number of different alignment tools have been proposed for nanopore data. Three good ones are [BWA](http://bio-bwa.sourceforge.net/), [LAST](http://last.cbrc.jp/) and [Graphmap](https://github.com/isovic/graphmap). We will start with BWA.
 
 BWA straight to sorted BAM:
 
@@ -51,9 +49,6 @@ samtools index 2D_vs_MG1655.bwa.bam
 LAST straight to sorted BAM:
 
 ```sh
-# first create the fasta file
-porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
-
 # create a LAST db of the reference genome
 lastdb MG1655 Data/reference/Ecoli_MG1655/MG1655.fa
 
@@ -67,6 +62,17 @@ maf-convert.py sam MAP006-1.2D.maf | \
 
 # index bam
 samtools index 2D_vs_MG1655.last.bam
+```
+
+Finally, Graphmap:
+
+```sh
+~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa -d MAP006-1.2D.fastq -o gm.sam
+samtools view -Sb gm.sam | \
+samtools sort -o 2D_vs_MG1655.graphmap.bam - 
+
+# index bam
+samtools index 2D_vs_MG1655.graphmap.bam
 ```
 
 ### Viewing Alignments in IGV

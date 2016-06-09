@@ -688,7 +688,7 @@ We'll try extracting FASTQ data, and loading up a metadata file for visualisatio
 
 ## poretools
 
-Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, which is why we chose to pre-extract the necessary meta-data.
+Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, though the parellel GUI is faster.
 
 ```sh
 # extract 2D fastq

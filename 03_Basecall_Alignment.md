@@ -84,7 +84,7 @@ You can read about viewing alignments in IGV [here](https://www.broadinstitute.o
 igv.sh
 ```
 
-If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more 2D_vs_MG1655.<aligner>.bam files to see how they compare.
+If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more 2D_vs_MG1655.<aligner>.bam files to see how they compare. See if you can find a SNP.
 
 ## Assessing the accuracy of alignment
 Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST (not BWA or Graphmap), due to differences in the cigar strings:

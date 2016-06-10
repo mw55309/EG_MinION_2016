@@ -19,7 +19,7 @@ Nanocall just does 1D basecalling at the moment. In the ouptput file, you will f
 [Deepnano](https://bitbucket.org/vboza/deepnano) uses a deep recurrent neural network (RNN) model to call bases. ONT is also moving towards RNN basecalling and it is likely this will be the main method for calling R9 (and future data) going forward. Deepnano is a python package built on the Theano framework. This has quite a few depedencies, so we installed them in a virtual environment. You can activate the environment like this:
 
 ```sh
-source deepnano_ve/bin/activate
+source deep_ve/bin/activate
 ```
 
 We can then run deepnano on a directory of FAST5 files like this:
@@ -28,7 +28,10 @@ We can then run deepnano on a directory of FAST5 files like this:
 cd ~/deepnano
 python basecall_no_metrichor.py --directory ~/Data/pre_basecall --output ~/Data/pre_basecall/deepnano.fasta
 cd ..
+deactivate
 ```
+
+Sadly, this is currently failing on the vm's with strange errors (the software is still experimental). It works on my laptop though...
 
 ## Read alignment
 

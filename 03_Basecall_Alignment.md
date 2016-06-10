@@ -87,11 +87,11 @@ igv.sh
 If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more 2D_vs_MG1655.<aligner>.bam files to see how they compare.
 
 ## Assessing the accuracy of alignment
-Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST not BWA, due to differences in the cigar strings:
+Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST (not BWA or Graphmap), due to differences in the cigar strings:
 
 ```bash
 # count errors
-count-errors.py 2D_vs_MG1655.last.bam > 2D_vs_MG1655.last.profile.txt
+python ~/nanopore-scripts/count-errors.py 2D_vs_MG1655.last.bam > 2D_vs_MG1655.last.profile.txt
 
 # take a look
 head 2D_vs_MG1655.last.profile.txt

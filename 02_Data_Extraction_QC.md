@@ -330,10 +330,10 @@ Fastq                    Dataset {SCALAR}
 ```
 From experience though, there can be strange formating quirks in the output from this command. We will demonstrate more convenient ways to extract the fastq sequences below.
 
-Unsurprisingly h5dump dumps the entire file to STDOUT. Quite a bit to get through...
+Unsurprisingly h5dump dumps the entire file to STDOUT. There is quite a bit to get through, and even more in a 2D file.
 
 ```sh
-h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+h5dump ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5
 ```
 
 ## Browsing HDF5 files

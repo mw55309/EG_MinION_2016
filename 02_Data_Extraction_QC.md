@@ -537,7 +537,7 @@ If you ran pore_rt() during your nanopore run then you will have access to a met
 # load in pass data
 pass <- read.table("Data/run_metadata/r9_pass_meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
 
-# set standard/expected column names
+# set standard/expected column names for legacy poRe code
 colnames(pass) <- c("filename","channel_num","read_num","read_start_time",
                     "status","tlen","clen","len2d",
                     "run_id","read_id","barcode","exp_start")
@@ -602,12 +602,15 @@ plot.length.histogram(pass)
 plot.length.histogram(fail)
 ```
 
-There's quite a long failed template read!
+As is often the case, there is quite a long failed template read. These are usually nonsense:
 
 ```R
+max(pass$tlen)
+# [1] 37395
+
 max(fail$tlen)
-# [1] 379692
-fail [fail$tlen==379692,]
+# [1] 130789
+fail [fail$tlen==130789,]
 ```
 
 Plotting in ggplot2 if you really want to
@@ -656,18 +659,15 @@ plot.channel.summary(pass.s, report.col="l2d")
 plot.channel.summary(fail.s)
 
 # cumulative 2D length
-plot.channel.summary(fail.s, report.col="l2d")
+plot.channel.summary(fail.s, report.col="ltemplate")
 
 ```
 
 ### Extracting meta-data from fast5
-If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files.  This takes a long time as we have to open each file and extract the attributes.  For the 2666 files we have selected here,  and on this VM, it takes about 4 minutes.
+If you haven't run pore_rt(), then you can extract meta-data directly from the fast5 files. This takes a little time as we have to open each file and extract the attributes. For the 878 R9 1D files we have selected here, and on this VM, it takes about 15 seconds. Scaling up to a large dataset, that's around 200k files per hour.
 
 ```R
-pass <- read.meta.info("Data/read_data/MAP006-1_2100000-2600000_fast5/", 
-                        path.t="/Analyses/Basecall_2D_000/", 
-                        path.c="/Analyses/Basecall_2D_000/", 
-                        pass="P")
+pass <- read.meta.info("Data/read_data/R9_1D_FAST5/")
                         
 plot.cumulative.yield(pass)
 ```

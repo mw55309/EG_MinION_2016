@@ -453,6 +453,8 @@ head(ev$template)
 
 Extracting the model itself in poRe is also easy, but relies on a little legacy code that needs to be updated... next version ;-)
 
+<!---
+
 ```R
 mods <- get.models(f5, tmodel = "/Analyses/Basecall_2D_000/BaseCalled_template/Model", 
                         cmodel = "/Analyses/Basecall_2D_000/BaseCalled_complement/Model")
@@ -505,6 +507,8 @@ Scale and shift are then applied in a classic linear model: (model.mean * scale)
 * (43.29339 * 0.9643541) + 8.616875 = 50.36703
 
 Which is the model value that shows up in the events table above. 
+
+--->
 
 #### Plotting Squiggles
 

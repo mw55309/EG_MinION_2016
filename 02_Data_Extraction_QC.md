@@ -54,10 +54,10 @@ Today, we will mostly be working with an R9 1D (E coli) dataset released by Nick
 
 ## File handling
 
-The folder Data/read_data/MAP006-1_2100000-260000000_fast5/ contains some SQK-MAP-006 data from the Loman lab.  There are only a few thousand reads in there (to save time), but it is not uncommon to have folders containing 100,000s of FAST5 files, and therefore ls can be uninformative/not work.  However, we can use find to reveal directory structure (here using the top-level directory Data)
+The folder Data/read_data/R9_1D_FAST5 contains a few hundred reads (to save time here), but it is not uncommon to have folders containing 100,000s of FAST5 files, and therefore the ls command can be uninformative/not work.  However, we can use find to reveal directory structure (here using the top-level directory Data)
 
 ```sh
-find Data -type d
+find ~/Data -type d
 ```
 
 ## Using HDF5 command line tools

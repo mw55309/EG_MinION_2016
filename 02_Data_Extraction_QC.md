@@ -672,6 +672,7 @@ pass <- read.meta.info("Data/read_data/R9_1D_FAST5/")
 plot.cumulative.yield(pass)
 ```
 
+<!---
 ## Extracting FASTQ from the command-line
 
 
@@ -694,9 +695,11 @@ FASTQ can be converted to FASTA using a small script
 porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
 ```
 
+--->
+
 ## poRe Parallel GUI
 
-A convenient alternative method of data extraction and basic run QC is offered by a second pore GUI: pore_parellel(). The parallel GUI is designed to process batches of base-called files, rapidly extracting FASTQ and metadata using parallel code.
+A convenient method of data extraction and basic run QC is offered by a second pore GUI: pore_parellel(). The parallel GUI is designed to process batches of base-called files, rapidly extracting FASTQ and metadata using parallel code.
 This GUI also provides plotting output similar to pore rt(). We can launch the parellel GUI from a terminal:
 
 ```sh

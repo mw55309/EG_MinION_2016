@@ -440,9 +440,10 @@ f5 <- "~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5"
 ev <- get.events(f5)
 names(ev)
 head(ev$template)
+
 ev2 <- get.events(f5_2d)
 names(ev2)
-head(ev$complement)
+head(ev2$complement)
 ```
 
 * start: time in seconds
@@ -521,7 +522,7 @@ Squiggle plots are staircase step plots of event mean values with event length a
 plot.squiggle(ev$template)
 plot.squiggle(ev$template,minseconds=3,maxseconds=4)
 
-plot.squiggle(ev2$complement)
+plot.squiggle(ev2$complement,maxseconds=0.5)
 ```
 
 ## Run QC in poRe

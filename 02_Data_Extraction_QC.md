@@ -440,6 +440,9 @@ f5 <- "~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5"
 ev <- get.events(f5)
 names(ev)
 head(ev$template)
+ev2 <- get.events(f5_2d)
+names(ev2)
+head(ev$complement)
 ```
 
 * start: time in seconds
@@ -512,12 +515,13 @@ Which is the model value that shows up in the events table above.
 
 #### Plotting Squiggles
 
-Plotting squiggles works directly from the events data.  The parameters minseconds and maxseconds control which events to plot:
+Squiggle plots are staircase step plots of event mean values with event length as the step length. Plotting squiggles works directly from the events data extracted using get.events(). The parameters minseconds and maxseconds control the time interval plotted:
 
 ```R
 plot.squiggle(ev$template)
-plot.squiggle(ev$template, minseconds=5)
-plot.squiggle(ev$complement)
+plot.squiggle(ev$template,minseconds=3,maxseconds=4)
+
+plot.squiggle(ev2$complement)
 ```
 
 ## Run QC in poRe

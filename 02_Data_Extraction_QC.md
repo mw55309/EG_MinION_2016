@@ -527,11 +527,15 @@ plot.squiggle(ev2$complement,maxseconds=0.5)
 
 ## Run QC in poRe
 
-If you ran pore_rt() during your nanopore run then you will have access to a metadata text file that can be used for run QC etc.  Otherwise we will have to create one (more below).  In the meantime, we have meta data for the pass and fail folders for Nick's SQK-MAP-006 run
+As we saw ealier, the poRe real-time GUI, pore_rt() outputs a metadata text file during a nanopore run and this can be used for run QC and further analysis. If pore_rt() was not run, alternative methods are available for extracting the same metadata post-run. More on this below. 
+
+For demonstration purposes, we have uploaded 
+
+If you ran pore_rt() during your nanopore run then you will have access to a metadata text file that can be used for run QC etc.  Otherwise we will have to create one (more below). In the meantime, we have put some example metadata files in the ~/Data/run_metadata folder. We focus on a 2D R9 run here.
 
 ```R
 # load in pass data
-pass <- read.table("Data/run_metadata/pass.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
+pass <- read.table("Data/run_metadata/r9_pass_meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
 
 # set standard/expected column names
 colnames(pass) <- c("filename","channel_num","read_num","read_start_time",
@@ -539,7 +543,8 @@ colnames(pass) <- c("filename","channel_num","read_num","read_start_time",
                     "run_id","read_id","barcode","exp_start")
 
 # load in the fail data
-fail <- read.table("Data/run_metadata/fail.meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
+fail <- read.table("Data/run_metadata/r9_fail_meta.txt", sep="\t", header=TRUE, stringsAsFactors=FALSE)
+
 
 # set standard/expected column names
 colnames(fail) <- c("filename","channel_num","read_num","read_start_time",
@@ -559,7 +564,9 @@ max(pass$len2d)
 
 # get the metadata for that read
 pass[pass$len2d==max(pass$len2d),]
+```
 
+<!---
 # We now know the longest read
 longest <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch153_file57_strand.fast5"
 lfq <- get_fastq(longest, which="2D")
@@ -568,8 +575,7 @@ lfa <- get_fasta(longest, which="2D")
 # write fastq and fasta out to files
 cat(lfq[["2D"]], file = "longest.fastq", sep = "\n", fill = FALSE)
 cat(lfa[["2D"]], file = "longest.fasta", sep = "\n", fill = FALSE)
-```
-
+--->
 
 ### Yield
 

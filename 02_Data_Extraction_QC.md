@@ -314,20 +314,20 @@ h5ls -r ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5
 /UniqueGlobalKey/tracking_id Group
 ```
 
-We can also use h5ls -d to extract specific datasets from the files (note the /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq appended to the filename):
+We can also use h5ls -d to extract specific datasets from the files (note the /Analyses/Basecall_1D_000/BaseCalled_template/Fastq appended to the filename):
 ```sh
- h5ls -d Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5/Analyses/Basecall_2D_000/BaseCalled_2D/Fastq
+h5ls -d ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5/Analyses/Basecall_1D_000/BaseCalled_template/Fastq
  ```
  ```
 Fastq                    Dataset {SCALAR}
     Data:
-        (0) "@1b63c36c-fb28-4cf3-8df1-3eb075eb00b2_Basecall_2D_000_2d LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand\nCATTTTCTTTCTTACTGATATTAGTTTTTGG
+        (0) "@a8964d35-bbf8-4af8-afe6-2dfd7b57e7ae_Basecall_Alignment_template nanopore2_20160728_FNFAB24462_MN17024_sequencing_run_E_coli_K12_1D_R9_SpotOn_2_40525_ch2_read16_strand\nGTGTTGTACTTCGTTCAGTTACGTATTGCTGTTTTCGCATTTATCGTGAAACGC
    ...
    <snip>
    ...
-   ,*)))+,))*)***++*))**+)))\n"
+   32+')&'')(+.+)',$'')*)+*.-1*+*+*2,.-,,/-*-.(-&#%\n"
 ```
-(but beware the odd " '+' repeats 8 times " in the quality socres!
+From experience though, there can be strange formating quirks in the output from this command. We will demonstrate more convenient ways to extract the fastq sequences below.
 
 Unsurprisingly h5dump dumps the entire file to STDOUT. Quite a bit to get through...
 

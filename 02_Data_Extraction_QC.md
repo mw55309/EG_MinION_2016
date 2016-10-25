@@ -451,7 +451,7 @@ head(ev$template)
 
 #### Extracting the model
 
-Extracting the model itself in poRe is also easy, but relies on a little legacy code that needs to be updated... next version ;-)
+For the Hidden Markov Model (HMM), R7 basecaller, the parameters of the model used to convert events to fastq sequences were stored alongside the event tables and fastq sequences. The get.models() and get.model.params() functions are provided to extract this information for R7 files. However, for R9 files basecalled using the current recurrent neural network methods (RNN) the model is more of a black box, and the parameters are not available for inspection in the FAST5 files. Since R7 is deprecated, we won't go into further detail on this here.
 
 <!---
 

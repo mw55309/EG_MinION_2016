@@ -433,24 +433,20 @@ Simply use get_fasta() instead of get_fastq(). The arguments are the same.
 
 #### Events data
 
-We extract events data with the get.events function.  As events data are co-located with FASTQ in the FAST5 file, then for Nick's SQK-MAP-006 data we need to give it the paths again.
-
-get.events again returns a list, wth the template and complement events as data frames
+We extract events data with the get.events() function. For 2D data files, get.events again returns a list, wth the template and complement data frames. For 1D files you just get template events:
 
 ```R
-f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5"
-ev <- get.events(f5, path.t = "/Analyses/Basecall_2D_000/", path.c = "/Analyses/Basecall_2D_000/")
+f5 <- "~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5"
+ev <- get.events(f5)
 names(ev)
 head(ev$template)
-head(ev$complement)
 ```
 
 * start: time in seconds
 * mean: the mean signal of the event
-* stdev: the standard deviation when sampling
-* length: length of the event
+* stdv: the standard deviation when sampling
+* length: length (duration) of the event
 * model_state: the predicted kmer
-* model_level: the value from the model
 * move: how many moves the model has made in that step
 
 #### Extracting the model

@@ -44,7 +44,11 @@ In May 2016, ONT released the R9 pore and SQK-NSK007 kit (replacing the R7 pore 
 
 R9 offers greater accuracy and sequences at higher speeds. A major new feature of R9 data files is that they include Raw data in a new top-level group (/Raw).
 
-####Rapid 1D 
+####Rapid 1D
+
+Due to the noisiness of R7 nanopore reads, virtually all experiments prior to R9 used 2D library prep where reads of both template and complement stands are combined for greater accuracy through consensus. The greater accuracy of R9 means that '1D' reads (template strand only) are sufficiently accurate for many applications, and a transposase-based rapid library prep protocol enables libraries to be prepared in around 5 minutes.
+
+Today, we will mostly be working with an R9 1D (E coli) dataset released by Nick Loman in May 2016: http://lab.loman.net/2016/07/30/nanopore-r9-data-release/
 
 ## File handling
 

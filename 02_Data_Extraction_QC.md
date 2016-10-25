@@ -338,17 +338,23 @@ h5dump ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5
 
 ## Browsing HDF5 files
 
-Any HDF5 file can be opened using hdfview and browsed/edited in a Java GUI
+Any HDF5 file can be opened using hdfview and browsed/edited in a Java GUI. The example files can be opened from the terminal as shown below. Alternatively, files can also be opened via the hdfview GUI.
 
 ```sh
-# non base-called
-hdfview Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
+# non base-called (2D R9)
+hdfview ~/Data/read_data/r9_2d_zika_ch1_read10_pre.fast5 &
 
-# base called
-hdfview Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5 &
+# base called (2D R9)
+hdfview ~/Data/read_data/r9_2d_zika_ch1_read10.fast5 &
+
+# base called (1D R9)
+hdfview ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5 &
+
+# base called (2D R7)
+hdfview ~/Data/read_data/r7_2d_ecoli_ch56_file159.fast5 &
 ```
 
-Try opening the two R9 data files (/Data/read_data/nanopore_R9*), and see if you can spot any difference (hint - check the logs and summary groups).
+Have a browse through these files and look for the main differences (hint - check the logs and summary groups).
 
 ## Basic manipulation in poRe
 

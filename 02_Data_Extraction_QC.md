@@ -714,7 +714,7 @@ Data Extraction
 
 Plotting
 * Choose Metadata File
-* Show Plots (for selected metadata)
+* Show/Update Plots (for selected metadata)
 
 We'll try extracting FASTQ data, and loading up a metadata file for visualisation.
 

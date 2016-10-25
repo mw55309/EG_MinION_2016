@@ -11,7 +11,7 @@ MinION data files are FAST5 files, and FAST5 files are fundamentally [HDF5 files
 
 In FAST5 files major data blocks like FASTQ sequences are stored in datasets arranged in a tree-structure of groups. Metadata are stored in group and dataset attributes. The same file format is used pre- and post-basecalling, with groups, datasets and associated attributes added incrementally.
 
-### A Brief History
+### A Brief History of FAST5
 
 Oxford Nanopore are very bad at releasing official definitions of file formats and there is consequently a significant amount of guess work and exploration required to work out where all the data is inside FAST5 files.
 

@@ -90,7 +90,7 @@ UniqueGlobalKey          Group
 
 Adding the -r flag makes the listing recursive. This is a pre-basecalled 2D R9 file:
 ```sh
-h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+h5ls -r ~/Data/read_data/r9_2d_zika_ch1_read10_pre.fast5
 ```
 ```
 /                        Group
@@ -101,8 +101,12 @@ h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch
 /Analyses/EventDetection_000/Configuration/event_detection Group
 /Analyses/EventDetection_000/Configuration/hairpin_detection Group
 /Analyses/EventDetection_000/Reads Group
-/Analyses/EventDetection_000/Reads/Read_151 Group
-/Analyses/EventDetection_000/Reads/Read_151/Events Dataset {13837/Inf}
+/Analyses/EventDetection_000/Reads/Read_10 Group
+/Analyses/EventDetection_000/Reads/Read_10/Events Dataset {2176/Inf}
+/Raw                     Group
+/Raw/Reads               Group
+/Raw/Reads/Read_10       Group
+/Raw/Reads/Read_10/Signal Dataset {50722/Inf}
 /Sequences               Group
 /Sequences/Meta          Group
 /UniqueGlobalKey         Group
@@ -111,7 +115,7 @@ h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch
 /UniqueGlobalKey/tracking_id Group
 ```
 
-We can compare this to the corresponding base-called file. Note all the basecalling data in /Analyses/Basecall_1D_000 and /Analyses/Basecall_2D_000.
+We can compare this to the corresponding (2D R9) base-called file. Note all the basecalling data added into the /Analyses/Basecall_1D_000 and /Analyses/Basecall_2D_000 groups.
 
 ```sh
 h5ls -r ~/Data/read_data/r9_2d_zika_ch1_read10.fast5

@@ -321,7 +321,8 @@ h5ls -d ~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5/Analyses/Basecall_1D_000/B
  ```
 Fastq                    Dataset {SCALAR}
     Data:
-        (0) "@a8964d35-bbf8-4af8-afe6-2dfd7b57e7ae_Basecall_Alignment_template nanopore2_20160728_FNFAB24462_MN17024_sequencing_run_E_coli_K12_1D_R9_SpotOn_2_40525_ch2_read16_strand\nGTGTTGTACTTCGTTCAGTTACGTATTGCTGTTTTCGCATTTATCGTGAAACGC
+        (0) "@a8964d35-bbf8-4af8-afe6-2dfd7b57e7ae_Basecall_Alignment_template nanopore2_20160728_FNFAB24462_MN17024_sequencing_run_E_coli_K12_1D_R9_SpotOn_2_40525_ch2_read16_strand\n
+        GTGTTGTACTTCGTTCAGTTACGTATTGCTGTTTTCGCATTTATCGTGAAACGC
    ...
    <snip>
    ...

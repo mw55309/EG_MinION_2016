@@ -371,26 +371,27 @@ library(poRe)
 
 #### FASTQ
 
-We'll see how to extract FASTQ from entire directories below, but here are some exemples of single file analysis
+We'll see how to extract FASTQ from entire directories below, but here are some exemples of single file analysis. We start with the get_fastq() function. For a 1D R9 file, this returns the template fastq sequence. 
 
 ```R
-f5 <- "Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5"
+f5 <- "~/Data/read_data/r9_1d_ecoli_ch2_read16.fast5"
 get_fastq(f5)
 ```
 
-This returns a list with a single fastq datasets, "2D".  However, where are template and complement?  Unfortunately the defaults are set to v1.1 and this file is v1.0.  We can use the path.t and path.c parameters to tell poRe where the template and complement data are
+For a 2D file, it returns a list with template, complement and 2D sequences where available.
 
 ```R
-get_fastq(f5, path.t="/Analyses/Basecall_2D_000/", path.c="/Analyses/Basecall_2D_000/")
-fqs <- get_fastq(f5, path.t="/Analyses/Basecall_2D_000/", path.c="/Analyses/Basecall_2D_000/")
-names(fqs)
+f5_2d <- "~/Data/read_data/r9_2d_zika_ch1_read10.fast5"
+get_fastq(f5_2d)
 ```
 
-If we don't want to extract all 3, we can choose which to extract using the "which" argument
+Additional arguments to this function allow for selection of a specific fastq dataset, and the specification of dataset paths (useful for older v1.0 files).
 
 ```R
-get_fastq(f5, path.t="/Analyses/Basecall_2D_000/", which="template")
+? get_fastq()
 ```
+
+Press q to exit the help information.
 
 Working with lists is easy in R, and if you want the FASTQ as a string:
 

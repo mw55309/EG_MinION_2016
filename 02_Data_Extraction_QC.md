@@ -22,7 +22,7 @@ In early autumn 2015, SQK-MAP-006 came along. This was a major chemistry change 
 
 In November 2015, ONT released a new file format, which we can call FAST5 v1.1. The major difference was that the template and complement FASTQ and events data were moved to a new group within the FAST5 file, separate from the 2D data.  This actually makes logical sense, but moving things around can complicate data analysis.
 
-#### Major file format differences
+#### Major file format differences (v1.0 vs v1.1)
 
 The major difference is where the template and complement data are. In version 1.0 they are all in a group called Basecall_2D_000; however, in v1.1 they have been moved to Basecall_1D_000
 

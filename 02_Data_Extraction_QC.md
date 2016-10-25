@@ -48,7 +48,9 @@ R9 offers greater accuracy and sequences at higher speeds. A major new feature o
 
 Due to the noisiness of R7 nanopore reads, virtually all experiments prior to R9 used 2D library prep where reads of both template and complement stands are combined for greater accuracy through consensus. The greater accuracy of R9 means that '1D' reads (template strand only) are sufficiently accurate for many applications, and a transposase-based rapid library prep protocol enables libraries to be prepared in around 5 minutes.
 
-Today, we will mostly be working with an R9 1D (E coli) dataset released by Nick Loman in May 2016: http://lab.loman.net/2016/07/30/nanopore-r9-data-release/
+Rapid 1D FAST5 files naturally lack complement and 2D groups. They are otherwise similar to other R9 files.
+
+Today, we will mostly be working with an R9 1D (E coli) dataset released by Nick Loman in July 2016: http://lab.loman.net/2016/07/30/nanopore-r9-data-release/
 
 ## File handling
 

@@ -64,18 +64,19 @@ find ~/Data -type d
 
 h5ls and h5dump can be quite useful.
 
-h5ls reveals the top-level structure of fast5 files. Here is an R7, MAP006, version 1.0 file:
+h5ls reveals the top-level structure of fast5 files. Here is a 2D R9 file from a zika dataset:
 
 ```sh
-h5ls Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+h5ls ~/Data/read_data/r9_2d_zika_ch1_read10.fast5
 ```
 ```
 Analyses                 Group
+Raw                      Group
 Sequences                Group
 UniqueGlobalKey          Group
 ```
 
-And here is an R9 example:
+And here is a 1D rapid R9 example:
 
 ```sh
 h5ls Data/read_data/nanopore2_R9_MinKNOW_0.51_Ecoli_K12_MG1655_lambda_1004_1_ch192_read46_strand.fast5
@@ -87,7 +88,7 @@ Sequences                Group
 UniqueGlobalKey          Group
 ```
 
-Adding the -r flag makes the listing recursive. This is a pre-basecalled version 1.0 file:
+Adding the -r flag makes the listing recursive. This is a pre-basecalled 2D R9 file:
 ```sh
 h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
 ```
@@ -110,77 +111,122 @@ h5ls -r Data/read_data/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch
 /UniqueGlobalKey/tracking_id Group
 ```
 
-We can compare this to the corresponding base-called file. Note all the basecalling data in /Analyses/Basecall_2D_000.
+We can compare this to the corresponding base-called file. Note all the basecalling data in /Analyses/Basecall_1D_000 and /Analyses/Basecall_2D_000.
 
 ```sh
-h5ls -r Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG1655_20150924_MAP006_1_5005_1_ch56_file159_strand.fast5
+h5ls -r ~/Data/read_data/r9_2d_zika_ch1_read10.fast5
 ```
 ```
 /                        Group
 /Analyses                Group
+/Analyses/Basecall_1D_000 Group
+/Analyses/Basecall_1D_000/BaseCalled_complement Group
+/Analyses/Basecall_1D_000/BaseCalled_complement/Events Dataset {2006}
+/Analyses/Basecall_1D_000/BaseCalled_complement/Fastq Dataset {SCALAR}
+/Analyses/Basecall_1D_000/BaseCalled_template Group
+/Analyses/Basecall_1D_000/BaseCalled_template/Events Dataset {2538}
+/Analyses/Basecall_1D_000/BaseCalled_template/Fastq Dataset {SCALAR}
+/Analyses/Basecall_1D_000/Configuration Group
+/Analyses/Basecall_1D_000/Configuration/aggregator Group
+/Analyses/Basecall_1D_000/Configuration/basecall_1d Group
+/Analyses/Basecall_1D_000/Configuration/basecall_2d Group
+/Analyses/Basecall_1D_000/Configuration/calibration_strand Group
+/Analyses/Basecall_1D_000/Configuration/components Group
+/Analyses/Basecall_1D_000/Configuration/event_detection Group
+/Analyses/Basecall_1D_000/Configuration/general Group
+/Analyses/Basecall_1D_000/Configuration/hairpin_align Group
+/Analyses/Basecall_1D_000/Configuration/post_processing Group
+/Analyses/Basecall_1D_000/Configuration/post_processing.4000Hz Group
+/Analyses/Basecall_1D_000/Configuration/split_hairpin Group
+/Analyses/Basecall_1D_000/Log Dataset {SCALAR}
+/Analyses/Basecall_1D_000/Summary Group
+/Analyses/Basecall_1D_000/Summary/basecall_1d_complement Group
+/Analyses/Basecall_1D_000/Summary/basecall_1d_template Group
 /Analyses/Basecall_2D_000 Group
 /Analyses/Basecall_2D_000/BaseCalled_2D Group
-/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {8429}
+/Analyses/Basecall_2D_000/BaseCalled_2D/Alignment Dataset {3111}
 /Analyses/Basecall_2D_000/BaseCalled_2D/Fastq Dataset {SCALAR}
-/Analyses/Basecall_2D_000/BaseCalled_complement Group
-/Analyses/Basecall_2D_000/BaseCalled_complement/Events Dataset {6677}
-/Analyses/Basecall_2D_000/BaseCalled_complement/Fastq Dataset {SCALAR}
-/Analyses/Basecall_2D_000/BaseCalled_complement/Model Dataset {4096}
-/Analyses/Basecall_2D_000/BaseCalled_template Group
-/Analyses/Basecall_2D_000/BaseCalled_template/Events Dataset {7090}
-/Analyses/Basecall_2D_000/BaseCalled_template/Fastq Dataset {SCALAR}
-/Analyses/Basecall_2D_000/BaseCalled_template/Model Dataset {4096}
 /Analyses/Basecall_2D_000/Configuration Group
 /Analyses/Basecall_2D_000/Configuration/aggregator Group
 /Analyses/Basecall_2D_000/Configuration/basecall_1d Group
 /Analyses/Basecall_2D_000/Configuration/basecall_2d Group
 /Analyses/Basecall_2D_000/Configuration/calibration_strand Group
+/Analyses/Basecall_2D_000/Configuration/components Group
+/Analyses/Basecall_2D_000/Configuration/event_detection Group
 /Analyses/Basecall_2D_000/Configuration/general Group
 /Analyses/Basecall_2D_000/Configuration/hairpin_align Group
 /Analyses/Basecall_2D_000/Configuration/post_processing Group
-/Analyses/Basecall_2D_000/Configuration/post_processing.3000Hz Group
-/Analyses/Basecall_2D_000/Configuration/post_processing.5000Hz Group
-/Analyses/Basecall_2D_000/Configuration/recipes Group
+/Analyses/Basecall_2D_000/Configuration/post_processing.4000Hz Group
 /Analyses/Basecall_2D_000/Configuration/split_hairpin Group
 /Analyses/Basecall_2D_000/HairpinAlign Group
-/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {6261}
-/Analyses/Basecall_2D_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_151/Events}
+/Analyses/Basecall_2D_000/HairpinAlign/Alignment Dataset {2177}
 /Analyses/Basecall_2D_000/Log Dataset {SCALAR}
 /Analyses/Basecall_2D_000/Summary Group
-/Analyses/Basecall_2D_000/Summary/basecall_1d_complement Group
-/Analyses/Basecall_2D_000/Summary/basecall_1d_template Group
 /Analyses/Basecall_2D_000/Summary/basecall_2d Group
 /Analyses/Basecall_2D_000/Summary/hairpin_align Group
 /Analyses/Basecall_2D_000/Summary/post_process_complement Group
 /Analyses/Basecall_2D_000/Summary/post_process_template Group
-/Analyses/Basecall_2D_000/Summary/split_hairpin Group
 /Analyses/Calibration_Strand_000 Group
 /Analyses/Calibration_Strand_000/Configuration Group
 /Analyses/Calibration_Strand_000/Configuration/aggregator Group
 /Analyses/Calibration_Strand_000/Configuration/basecall_1d Group
 /Analyses/Calibration_Strand_000/Configuration/basecall_2d Group
 /Analyses/Calibration_Strand_000/Configuration/calibration_strand Group
+/Analyses/Calibration_Strand_000/Configuration/components Group
 /Analyses/Calibration_Strand_000/Configuration/general Group
+/Analyses/Calibration_Strand_000/Configuration/genome_mapping Group
 /Analyses/Calibration_Strand_000/Configuration/hairpin_align Group
-/Analyses/Calibration_Strand_000/Configuration/post_processing Group
 /Analyses/Calibration_Strand_000/Configuration/post_processing.3000Hz Group
-/Analyses/Calibration_Strand_000/Configuration/post_processing.5000Hz Group
-/Analyses/Calibration_Strand_000/Configuration/recipes Group
 /Analyses/Calibration_Strand_000/Configuration/split_hairpin Group
-/Analyses/Calibration_Strand_000/InputEvents Soft Link {Analyses/EventDetection_000/Reads/Read_151/Events}
 /Analyses/Calibration_Strand_000/Log Dataset {SCALAR}
 /Analyses/Calibration_Strand_000/Summary Group
-/Analyses/Calibration_Strand_000/Summary/calibration_strand_2d Group
-/Analyses/Calibration_Strand_000/Summary/calibration_strand_complement Group
-/Analyses/Calibration_Strand_000/Summary/calibration_strand_template Group
 /Analyses/EventDetection_000 Group
 /Analyses/EventDetection_000/Configuration Group
 /Analyses/EventDetection_000/Configuration/abasic_detection Group
 /Analyses/EventDetection_000/Configuration/event_detection Group
 /Analyses/EventDetection_000/Configuration/hairpin_detection Group
 /Analyses/EventDetection_000/Reads Group
-/Analyses/EventDetection_000/Reads/Read_151 Group
-/Analyses/EventDetection_000/Reads/Read_151/Events Dataset {13837}
+/Analyses/EventDetection_000/Reads/Read_10 Group
+/Analyses/EventDetection_000/Reads/Read_10/Events Dataset {2176}
+/Analyses/EventDetection_001 Group
+/Analyses/EventDetection_001/Configuration Group
+/Analyses/EventDetection_001/Configuration/aggregator Group
+/Analyses/EventDetection_001/Configuration/basecall_1d Group
+/Analyses/EventDetection_001/Configuration/basecall_2d Group
+/Analyses/EventDetection_001/Configuration/calibration_strand Group
+/Analyses/EventDetection_001/Configuration/components Group
+/Analyses/EventDetection_001/Configuration/event_detection Group
+/Analyses/EventDetection_001/Configuration/general Group
+/Analyses/EventDetection_001/Configuration/hairpin_align Group
+/Analyses/EventDetection_001/Configuration/post_processing Group
+/Analyses/EventDetection_001/Configuration/post_processing.4000Hz Group
+/Analyses/EventDetection_001/Configuration/split_hairpin Group
+/Analyses/EventDetection_001/Log Dataset {SCALAR}
+/Analyses/EventDetection_001/Reads Group
+/Analyses/EventDetection_001/Reads/Read_10 Group
+/Analyses/EventDetection_001/Reads/Read_10/Events Dataset {4563}
+/Analyses/EventDetection_001/Summary Group
+/Analyses/EventDetection_001/Summary/event_detection Group
+/Analyses/Hairpin_Split_000 Group
+/Analyses/Hairpin_Split_000/Configuration Group
+/Analyses/Hairpin_Split_000/Configuration/aggregator Group
+/Analyses/Hairpin_Split_000/Configuration/basecall_1d Group
+/Analyses/Hairpin_Split_000/Configuration/basecall_2d Group
+/Analyses/Hairpin_Split_000/Configuration/calibration_strand Group
+/Analyses/Hairpin_Split_000/Configuration/components Group
+/Analyses/Hairpin_Split_000/Configuration/event_detection Group
+/Analyses/Hairpin_Split_000/Configuration/general Group
+/Analyses/Hairpin_Split_000/Configuration/hairpin_align Group
+/Analyses/Hairpin_Split_000/Configuration/post_processing Group
+/Analyses/Hairpin_Split_000/Configuration/post_processing.4000Hz Group
+/Analyses/Hairpin_Split_000/Configuration/split_hairpin Group
+/Analyses/Hairpin_Split_000/Log Dataset {SCALAR}
+/Analyses/Hairpin_Split_000/Summary Group
+/Analyses/Hairpin_Split_000/Summary/split_hairpin Group
+/Raw                     Group
+/Raw/Reads               Group
+/Raw/Reads/Read_10       Group
+/Raw/Reads/Read_10/Signal Dataset {50722/Inf}
 /Sequences               Group
 /Sequences/Meta          Group
 /UniqueGlobalKey         Group

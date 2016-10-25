@@ -336,7 +336,7 @@ h5dump Data/read_data/MAP006-1_2100000-2600000_fast5/LomanLabz_PC_Ecoli_K12_MG16
 
 ## Browsing HDF5 files
 
-Any HDF5 file can be opened using hdfview and browsed/edited in a GUI
+Any HDF5 file can be opened using hdfview and browsed/edited in a Java GUI
 
 ```sh
 # non base-called

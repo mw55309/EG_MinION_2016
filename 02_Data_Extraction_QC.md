@@ -385,7 +385,7 @@ f5_2d <- "~/Data/read_data/r9_2d_zika_ch1_read10.fast5"
 get_fastq(f5_2d)
 ```
 
-Additional arguments to this function allow for selection of a specific fastq dataset, and the specification of dataset paths (useful for older v1.0 files).
+Additional arguments to this function allow for selection of a specific fastq dataset, and the specification of alternative dataset paths (useful for older v1.0 files).
 
 ```R
 ? get_fastq()

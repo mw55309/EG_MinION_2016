@@ -396,27 +396,27 @@ Press q to exit the help information.
 Working with lists is easy in R, and if you want the FASTQ as a string:
 
 ```R
-fq <- get_fastq(f5, path.t="/Analyses/Basecall_2D_000/", which="all")
+fq <- get_fastq(f5_2d)
 names(fq)
 fq$template
 ```
 
-From here you can see that it's incredibly simple to write a FASTQ extraction script:
+From here it is quite simple to write a FASTQ extraction script. Here is a little example:
 
 ```R
 # path to fast5 files
-f5dir <- "Data/read_data/small_test"
+f5dir <- "Data/read_data/R9_1D_FAST5"
 # get vector of all fast5 files
 f5files <- dir(f5dir, pattern="\\.fast5$", full.names = TRUE)
 # iterate over files
 for (f5 in f5files) {
-    # extract 2D fastq
-    fq <- get_fastq(f5, which="2D")
-    # check fq is a list and contains 2D
-    if (typeof(fq) == "list" && exists("2D", where=fq)) {
+    # extract template fastq
+    fq <- get_fastq(f5)
+    # check fq is a list and contains template data
+    if (typeof(fq) == "list" && exists("template", where=fq)) {
         # cat to "" (STDOUT but could be the name of a file
         # change the cat = "" to a filename to see what happens
-        cat(fq[["2D"]], file = "", sep = "\n", fill = FALSE)
+        cat(fq[["template"]], file = "", sep = "\n", fill = FALSE)
     }
 }
 ```
@@ -425,7 +425,11 @@ However, we have scripts that do this already, so there is no need to write your
 
 #### FASTA data
 
-Simply use get_fasta instead of get_fastq :-)
+Simply use get_fasta() instead of get_fastq(). The arguments are the same.
+
+```R
+? get_fasta()
+```
 
 #### Events data
 

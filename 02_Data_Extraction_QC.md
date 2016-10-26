@@ -722,25 +722,25 @@ We'll try extracting FASTQ data, and loading up a metadata file for visualisatio
 Much of what we did above can also be achieved using poretools.  We have cheated slightly with poRe by extracting most of the metadata we need during the run and metrichor base-calling, which allows us to do things much more quickly.  Below, poretools is going to each fast5 file and ripping out the necessary information which takes a long time.  poRe also takes a long time when having to do this, though the parellel GUI is faster.
 
 ```sh
-# extract 2D fastq
-poretools fastq --type 2D  Data/read_data/MAP006-1_2100000-2600000_fast5 > MAP006-1.2D.poretools.fastq
+# extract template fastq
+cd ~/tutorial
+poretools fastq --type fwd ~/Data/read_data/R9_1D_FAST5 > r9_1d.poretools.fastq
 
-# extract 2d fasta
-poretools fasta --type 2D Data/read_data/MAP006-1_2100000-2600000_fast5 > MAP006-1.2D.poretools.fasta
+# extract template fasta
+poretools fasta --type fwd ~/Data/read_data/R9_1D_FAST5 > r9_1d.poretools.fasta
 
 # read length histogram
-# this doesn't work because we had trouble installing rpy2
-poretools hist Data/read_data/MAP006-1_2100000-2600000_fast5
+# this doesn't work on the 1D R9 data here
+poretools hist ~/Data/read_data/R9_1D_FAST5
 
 # yield plot
-# this doesn't work because we had trouble installing rpy2
-poretools yield_plot Data/read_data/MAP006-1_2100000-2600000_fast5
+poretools yield_plot ~/Data/read_data/R9_1D_FAST5
 
 # occupancy plot
 # this doesn't work because we had trouble installing rpy2
-poretools occupancy Data/read_data/MAP006-1_2100000-2600000_fast5
+poretools occupancy ~/Data/read_data/R9_1D_FAST5
 
 # find the longest
-poretools winner Data/read_data/MAP006-1_2100000-2600000_fast5
+poretools winner ~/Data/read_data/R9_1D_FAST5
 ```
 

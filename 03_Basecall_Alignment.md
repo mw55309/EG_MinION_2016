@@ -120,6 +120,7 @@ igv.sh
 
 If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more r9_1d.*.bam files to see how they compare. Which one looks best? See if you can find a SNP.
 
+<!---
 ## Assessing the accuracy of alignment
 Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST (not BWA or Graphmap), due to differences in the cigar strings:
 
@@ -159,6 +160,8 @@ pid <- 100 * prof$matches / (prof$matches + prof$deletions + prof$insertions + p
 # show a boxplot
 boxplot(pid, ylab="% ID", col="skyblue2", xlab="2D")
 ```
+
+--->
 
 ## Aligning events with Nanopolish EventAlign
 

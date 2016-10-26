@@ -18,7 +18,7 @@ In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local
 
 -here
 
-
+<!---
 Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). They were released almost simultaneously. We are going to take a quick look at each of them here.
 
 ### Nanocall
@@ -49,6 +49,7 @@ deactivate
 ```
 
 Sadly, this is currently failing on the vm's with strange errors (the software is still experimental). It works on my laptop though...
+--->
 
 ## Read alignment
 

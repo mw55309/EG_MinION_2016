@@ -2,6 +2,20 @@
 
 ## Alternative Basecallers
 
+Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. 
+
+### Community R7 Basecallers
+
+In March 2016, two alternative community-developed basecallers were released: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). Both targeted the then current R7 data.
+
+[Nanocall](https://github.com/mateidavid/nanocall) was developed in Jared Simpson's lab, and performs basecalling using a hidden markov model (like the original R7 Metrichor).
+
+Deepnano is a python package built on the Theano framework, and uses a deep recurrent neural network (RNN) model to call bases. 
+ONT has also moved towards RNN basecalling and this is now the main method for calling R9 reads.
+
+-here
+
+
 Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). They were released almost simultaneously. We are going to take a quick look at each of them here.
 
 ### Nanocall

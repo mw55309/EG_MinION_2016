@@ -169,12 +169,13 @@ Nanopolish was written by Jared Simpson and represents a suite of tools for alig
 
 Nanopolish eventalign aligns the raw squiggle data directly to a reference genome, but requires a sequence-based alignment to guide it.
 
-**If you run the command below it can take up to ~1hr on the VM we're working on, so I recommend you don't**
+**The command below is an example only. It won't work on the VM because nanopolish requires a set of fast5 read files corresponding to the fasta and bam, and that the headers in the fasta give the path to the corresponding reads.**
 
 ```bash
-nanopolish eventalign --print-read-names --scale-events --reads MAP006-1.2D.fasta \
-                      -b 2D_vs_MG1655.bwa.bam -g Data/reference/Ecoli_MG1655/MG1655.fa \
-                      > Data/eventalign/MAP006-1.2D.eventalign.txt
+nanopolish eventalign --print-read-names --scale-events \
+        --reads ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta \
+        -b r9_1d.bwa.bam -g Data/reference/Ecoli_MG1655/MG1655.fa \
+        > Data/eventalign/test.eventalign.txt
 
 # eventalign can also output SAM format with the --sam flag
 ```
@@ -182,7 +183,7 @@ nanopolish eventalign --print-read-names --scale-events --reads MAP006-1.2D.fast
 We have a smaller dataset pre-run in Data/eventalign/singleread.eventalign.txt so let's take a look at that:
 
 ```bash
-head Data/eventalign/singleread.eventalign.txt
+head ~/Data/eventalign/singleread.eventalign.txt
 ```
 
 Now we can visualise in R
@@ -195,7 +196,7 @@ R
 library(poRe)
 
 # read in eventalign output as a data.frame
-d <- read.table("Data/eventalign/singleread.eventalign.txt", header=TRUE, sep="\t")
+d <- read.table("~/Data/eventalign/singleread.eventalign.txt", header=TRUE, sep="\t")
 
 # let's just look at the template strand
 dt <- d[d$strand=="t",]

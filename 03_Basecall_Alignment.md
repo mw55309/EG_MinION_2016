@@ -14,7 +14,7 @@ In March 2016, two alternative community-developed basecallers were released: [n
 
 ### Local Basecalling in MinKNOW
 
-In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local-basecalling-now-available-enabling-minion-usage-field) was enabled in a new release of the MinKNOW software (version 1.0.2 onwards). This official ONT local basecaller only works on R9 1D rapid sequencing data. Sadly though, MinKNOW basecalling 
+In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local-basecalling-now-available-enabling-minion-usage-field) was enabled in a new release of ONT's MinKNOW software (version 1.0.2 onwards). At the moment, the MinKNOW local basecaller only works on R9 1D rapid sequencing data; 2D support in under development. Local basecalling is enabled by two new protocol scripts in MinKNOW, so sadly we are unable to demonstrate it here (as we aren't doing a live run).
 
 -here
 

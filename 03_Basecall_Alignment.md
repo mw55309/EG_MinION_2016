@@ -79,30 +79,30 @@ LAST straight to sorted BAM:
 
 ```sh
 # create a LAST db of the reference genome
-lastdb MG1655 Data/reference/Ecoli_MG1655/MG1655.fa
+lastdb MG1655 ~/Data/reference/Ecoli_MG1655/MG1655.fa
 
 # align high quaklity reads to reference genome with LAST
-lastal -q 1 -a 1 -b 1 MG1655 MAP006-1.2D.fasta > MAP006-1.2D.maf
+lastal -q 1 -a 1 -b 1 MG1655 R9_1Drapid_2100000-2600000.fasta > r9_1d.maf
 
 # convert the MAF to BAM with complete CIGAR (matches and mismatches)
-maf-convert.py sam MAP006-1.2D.maf | \
-    samtools view -T Data/reference/Ecoli_MG1655/MG1655.fa -bS - | \
-    samtools sort -T 2D_vs_MG1655.last -o 2D_vs_MG1655.last.bam -
+maf-convert.py sam r9_1d.maf | \
+    samtools view -T ~/Data/reference/Ecoli_MG1655/MG1655.fa -bS - | \
+    samtools sort -T r9_1d.last -o r9_1d.last.bam -
 
 # index bam
-samtools index 2D_vs_MG1655.last.bam
+samtools index r9_1d.last.bam
 ```
 
 Finally, Graphmap:
 
 ```sh
-~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa -d MAP006-1.2D.fastq -o gm.sam
+~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa -d ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta -o r9_1d.gm.sam
 
-samtools view -Sb gm.sam | \
-samtools sort -o 2D_vs_MG1655.graphmap.bam - 
+samtools view -Sb r9_1d.gm.sam | \
+samtools sort -o r9_1d.graphmap.bam - 
 
 # index bam
-samtools index 2D_vs_MG1655.graphmap.bam
+samtools index r9_1d.graphmap.bam
 ```
 
 ## Viewing Alignments in IGV
@@ -113,7 +113,7 @@ You can read about viewing alignments in IGV [here](https://www.broadinstitute.o
 igv.sh
 ```
 
-If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more 2D_vs_MG1655.<aligner>.bam files to see how they compare. Which one looks best? See if you can find a SNP.
+If required, we load a genome from file ~/Data/reference/Ecoli_MG1655/MG1655.fa, and after that we can load one or more r9_1d.<aligner>.bam files to see how they compare. Which one looks best? See if you can find a SNP.
 
 ## Assessing the accuracy of alignment
 Aaron Quinlan has written a few useful scripts to work with nanopore data available on [github](https://github.com/arq5x/nanopore-scripts/).  We can use these to generate some statistics on the quality of alignments.  Unfortunately, at present the indel counting only works with LAST (not BWA or Graphmap), due to differences in the cigar strings:

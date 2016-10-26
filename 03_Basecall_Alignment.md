@@ -219,7 +219,7 @@ lines(mm$times, mm$means, col="red")
 ```
 ## Hairpins
 
-Finally, we will take a brief look at hairpins. In 2D MinIOn reads, hairpins divide the template and complement components of a MinION read; hairpins are absent from 1D rapid reads.
+Finally, we will take a brief look at hairpins. In 2D MinION reads, hairpins divide the template and complement components of a MinION read; hairpins are absent from 1D rapid reads.
 
 The hairpins in 2D reads form a characteristic current signal that is detected at the start of the basecalling process and accurate detection is crucial to accurate basecalling. 
 

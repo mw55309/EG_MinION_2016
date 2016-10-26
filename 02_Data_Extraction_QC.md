@@ -658,7 +658,7 @@ plot.channel.summary(pass.s, report.col="l2d")
 # the number of times the channel appears in any context
 plot.channel.summary(fail.s)
 
-# cumulative 2D length
+# cumulative template length
 plot.channel.summary(fail.s, report.col="ltemplate")
 
 ```

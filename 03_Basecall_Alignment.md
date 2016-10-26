@@ -67,7 +67,8 @@ bwa index ~/Data/reference/Ecoli_MG1655/MG1655.fa
 samtools faidx ~/Data/reference/Ecoli_MG1655/MG1655.fa
 
 # run bwa and pipe straight to samtools to create BAM
-bwa mem -x ont2d ~/Data/reference/Ecoli_MG1655/MG1655.fa ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta | \
+bwa mem -x ont2d ~/Data/reference/Ecoli_MG1655/MG1655.fa \
+        ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta | \
         samtools view -T ~/Data/reference/Ecoli_MG1655/MG1655.fa -bS - | \
         samtools sort -T r9_1d.bwa -o r9_1d.bwa.bam -
 
@@ -96,10 +97,11 @@ samtools index r9_1d.last.bam
 Finally, Graphmap:
 
 ```sh
-~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa -d ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta -o r9_1d.gm.sam
+~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa \
+        -d ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta -o r9_1d.gm.sam
 
 samtools view -Sb r9_1d.gm.sam | \
-samtools sort -o r9_1d.graphmap.bam - 
+        samtools sort -o r9_1d.graphmap.bam - 
 
 # index bam
 samtools index r9_1d.graphmap.bam

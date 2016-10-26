@@ -101,9 +101,9 @@ Finally, Graphmap:
 
 ```sh
 ~/graphmap/bin/Linux-x64/graphmap align -t 2 -r ~/Data/reference/Ecoli_MG1655/MG1655.fa \
-        -d ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta -o r9_1d.gm.sam
+        -d ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta -o r9_1d.graphmap.sam
 
-samtools view -Sb r9_1d.gm.sam | \
+samtools view -Sb r9_1d.graphmap.sam | \
         samtools sort -o r9_1d.graphmap.bam - 
 
 # index bam

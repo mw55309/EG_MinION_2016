@@ -10,8 +10,11 @@ In March 2016, two alternative community-developed basecallers were released: [n
 
 [Nanocall](https://github.com/mateidavid/nanocall) was developed in Jared Simpson's lab, and performs basecalling using a hidden markov model (like the original R7 Metrichor).
 
-Deepnano is a python package built on the Theano framework, and uses a deep recurrent neural network (RNN) model to call bases. 
-ONT has also moved towards RNN basecalling and this is now the main method for calling R9 reads.
+[Deepnano](https://bitbucket.org/vboza/deepnano) is a python package built on the Theano framework, and uses a deep recurrent neural network (RNN) model to call bases. ONT has also moved towards RNN basecalling and this is now the main method for calling R9 reads.
+
+### Local Basecalling in MinKNOW
+
+In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local-basecalling-now-available-enabling-minion-usage-field) was enabled in a new release of the MinKNOW software. This official ONT local basecaller only works on R9 1D rapid sequencing data.
 
 -here
 

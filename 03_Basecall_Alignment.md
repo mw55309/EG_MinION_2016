@@ -12,9 +12,21 @@ In March 2016, two alternative community-developed basecallers were released: [n
 
 [Deepnano](https://bitbucket.org/vboza/deepnano) is a python package built on the Theano framework, and uses a deep recurrent neural network (RNN) model to call bases. ONT has also moved towards RNN basecalling and this is now the main method for calling R9 reads.
 
-### Local Basecalling in MinKNOW
+### Live/Local Basecalling in MinKNOW
 
 In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local-basecalling-now-available-enabling-minion-usage-field) was enabled in a new release of ONT's MinKNOW software (version 1.0.2 onwards). At the moment, the MinKNOW local basecaller only works on R9 1D rapid sequencing data; 2D support in under development. Local basecalling is enabled by two new protocol scripts in MinKNOW, so sadly we are unable to demonstrate it here (as we aren't doing a live run).
+
+### Albacore - The Basecaller Source Code
+
+Albacore is a C++ project designed to provide a high-performance end-to-end analysis pipeline that can be run on (potentially) any platform. 
+
+Albacore is currently only available through the ONT Developer Channel to users who have signed the Developer terms and conditions.
+
+### Nanonet - The Research Basecaller Source Code
+
+Nanonet uses the same neural network that is used in Albacore, EPI2ME and live basecalling in MinKNOW. However, Nanonet is research code that is continually under development, not production code. Nanonet is available to the Nanopore Community through the [ONT Github](https://github.com/nanoporetech/nanonet)
+
+Nanonet provides recurrent neural network basecalling via CURRENNT. Event data is extracted from .fast5 files to create feature vectors to input into a pre-trained network. Output is as a single .fasta file. CURRENT provides GPU acceleration, but nanonet is pure python. Nanonet-Dev provides both 1D and 2D Basecalling.
 
 <!---
 Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). They were released almost simultaneously. We are going to take a quick look at each of them here.

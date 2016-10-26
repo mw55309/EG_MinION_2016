@@ -85,7 +85,7 @@ LAST straight to sorted BAM:
 # create a LAST db of the reference genome
 lastdb MG1655 ~/Data/reference/Ecoli_MG1655/MG1655.fa
 
-# align high quaklity reads to reference genome with LAST
+# align reads to reference genome with LAST
 lastal -q 1 -a 1 -b 1 MG1655 ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta > r9_1d.maf
 
 # convert the MAF to BAM with complete CIGAR (matches and mismatches)

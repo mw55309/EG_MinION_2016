@@ -125,7 +125,7 @@ Aaron Quinlan has written a few useful scripts to work with nanopore data availa
 
 ```bash
 # count errors
-python ~/nanopore-scripts/count-errors.py 2D_vs_MG1655.last.bam > 2D_vs_MG1655.last.profile.txt
+python ~/nanopore-scripts/count-errors.py r9_1d.last.bam > r9_1d.last.profile.txt
 
 # take a look
 head 2D_vs_MG1655.last.profile.txt

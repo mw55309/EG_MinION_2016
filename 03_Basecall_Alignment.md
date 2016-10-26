@@ -60,6 +60,9 @@ A number of different alignment tools have been proposed for nanopore data. Thre
 BWA straight to sorted BAM:
 
 ```sh
+# start by moving to a tutorial folder
+cd ~/tutorial
+
 # bwa index genome
 bwa index ~/Data/reference/Ecoli_MG1655/MG1655.fa
 

@@ -737,7 +737,6 @@ poretools hist ~/Data/read_data/R9_1D_FAST5
 poretools yield_plot ~/Data/read_data/R9_1D_FAST5
 
 # occupancy plot
-# this doesn't work because we had trouble installing rpy2
 poretools occupancy ~/Data/read_data/R9_1D_FAST5
 
 # find the longest

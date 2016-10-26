@@ -672,27 +672,23 @@ pass <- read.meta.info("Data/read_data/R9_1D_FAST5/")
 plot.cumulative.yield(pass)
 ```
 
-<!---
 ## Extracting FASTQ from the command-line
 
 
-Command-line scripts for extracting FASTQ can be pulled from [github](https://github.com/mw55309/poRe_scripts).  There are scripts there that can parse both the old and new format of fast5 file, but we have installed the old format scripts here:
+Command-line scripts for extracting FASTQ can be pulled from [github](https://github.com/mw55309/poRe_scripts).  There are scripts there that can parse both the old and new format of fast5 file, but we have installed the new format scripts in ~/pore_scripts:
 
 ```sh
-# 2D
-extract2D Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.2D.fastq
-
-# template
-extractTemplate Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.template.fastq
-
-# complement
-extractComplement Data/read_data/MAP006-1_2100000-2600000_fast5/ > MAP006-1.complement.fastq
+# template example
+cd ~/tutorial
+~/pore_scripts/extractTemplate ~/Data/read_data/R9_1D_FAST5/ > r9_1d.template.fastq
 ```
 
 FASTQ can be converted to FASTA using a small script
 
 ```sh
-porefq2fa MAP006-1.2D.fastq > MAP006-1.2D.fasta
+porefq2fa r9_1d.template.fastq > r9_1d.template.fasta
+head r9_1d.template.fastq
+head r9_1d.template.fasta
 ```
 
 --->

@@ -16,8 +16,6 @@ In March 2016, two alternative community-developed basecallers were released: [n
 
 In August 2016, [local basecalling](https://nanoporetech.com/about-us/news/local-basecalling-now-available-enabling-minion-usage-field) was enabled in a new release of ONT's MinKNOW software (version 1.0.2 onwards). At the moment, the MinKNOW local basecaller only works on R9 1D rapid sequencing data; 2D support in under development. Local basecalling is enabled by two new protocol scripts in MinKNOW, so sadly we are unable to demonstrate it here (as we aren't doing a live run).
 
--here
-
 <!---
 Up until recently, the only basecaller for MinION was the ONT cloud-based basecaller EPI2ME/Metrichor. However, two alternative basecallers were recently developed in the community: [nanocall](http://biorxiv.org/content/early/2016/03/28/046086) and [deepnano](http://arxiv.org/abs/1603.09195). They were released almost simultaneously. We are going to take a quick look at each of them here.
 

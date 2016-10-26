@@ -55,24 +55,24 @@ Sadly, this is currently failing on the vm's with strange errors (the software i
 
 ## Aligning reads to a reference
 
-A number of different alignment tools have been proposed for nanopore data. Three good ones are [BWA](http://bio-bwa.sourceforge.net/), [LAST](http://last.cbrc.jp/) and [Graphmap](https://github.com/isovic/graphmap). We will start with BWA.
+A number of different alignment tools have been proposed for nanopore data. Three good ones are [BWA](http://bio-bwa.sourceforge.net/), [LAST](http://last.cbrc.jp/) and [Graphmap](https://github.com/isovic/graphmap). Working in a terminal window, we will start with BWA.
 
 BWA straight to sorted BAM:
 
 ```sh
 # bwa index genome
-bwa index Data/reference/Ecoli_MG1655/MG1655.fa
+bwa index ~/Data/reference/Ecoli_MG1655/MG1655.fa
 
 # create fasta index for samtools
-samtools faidx Data/reference/Ecoli_MG1655/MG1655.fa
+samtools faidx ~/Data/reference/Ecoli_MG1655/MG1655.fa
 
 # run bwa and pipe straight to samtools to create BAM
-bwa mem -x ont2d Data/reference/Ecoli_MG1655/MG1655.fa MAP006-1.2D.fastq | \
-        samtools view -T Data/reference/Ecoli_MG1655/MG1655.fa -bS - | \
-        samtools sort -T 2D_vs_MG1655.bwa -o 2D_vs_MG1655.bwa.bam -
+bwa mem -x ont2d ~/Data/reference/Ecoli_MG1655/MG1655.fa ~/Data/read_data/R9_1Drapid_2100000-2600000.fasta | \
+        samtools view -T ~/Data/reference/Ecoli_MG1655/MG1655.fa -bS - | \
+        samtools sort -T r9_1d.bwa -o r9_1d.bwa.bam -
 
 # index bam
-samtools index 2D_vs_MG1655.bwa.bam
+samtools index r9_1d.bwa.bam
 ```
 
 LAST straight to sorted BAM:
